@@ -15,7 +15,7 @@ The scripts do the layout. The team owns the storyline, every number and the fin
 
 ## Install (once per laptop)
 
-You need Claude Code, Python 3.9+ and Node.js 18+.
+You need Claude Code, [uv](https://docs.astral.sh/uv/) and Node.js 18+. Nothing is installed globally: Python packages go into `.venv/` and the AI-pattern detector into `node_modules/`, both inside the skill folder.
 
 ```bash
 # put the skill where Claude Code finds it: in your project...
@@ -24,12 +24,20 @@ git clone <repo url> <your project>/.claude/skills/case-deck
 git clone <repo url> ~/.claude/skills/case-deck
 
 cd <that folder>
-python3 -m pip install -r requirements.txt
-npm install                      # the AI-pattern detector, so it also works offline
-python3 scripts/selftest.py      # should end with "All good"
+uv sync                          # creates .venv with the pinned packages (uv.lock)
+npm install                      # local copy of the AI-pattern detector, works offline
+uv run scripts/selftest.py       # should end with "All good"
 ```
 
-Update during the semester with `git pull` in the same folder.
+No uv? `curl -LsSf https://astral.sh/uv/install.sh | sh` (macOS/Linux) or `powershell -c "irm https://astral.sh/uv/install.ps1 | iex"` (Windows). Without uv, a plain virtual environment works too:
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install "python-pptx==1.0.2" lxml Pillow PyYAML pypdf
+```
+
+To remove the skill completely, delete the folder.
+
+Update during the semester with `git pull` in the same folder, then `uv sync`.
 
 ## Use it
 
@@ -41,7 +49,7 @@ Open Claude Code in your team's project folder and talk normally:
 - "Some slides sound like AI. Fix them, but show me first."
 - "Add the appendix zooms."
 
-Claude writes a `storyline.md` first and waits for your OK. Then it writes `deck_spec.yaml` and builds the deck. You can also edit the spec yourself and rebuild: `python3 scripts/build.py deck_spec.yaml`.
+Claude writes a `storyline.md` first and waits for your OK. Then it writes `deck_spec.yaml` and builds the deck. You can also edit the spec yourself and rebuild from your project folder: `uv run --project <skill folder> python <skill folder>/scripts/build.py deck_spec.yaml`.
 
 What is in the skill:
 
@@ -104,12 +112,11 @@ Record the result in `CHANGELOG.md`.
 
 ## For the instructor
 
-- Rebuild the pattern library after changing a source slide or a selector: `python3 scripts/curate.py --winning "<path to winning_cases>"`, then `python3 scripts/catalog_doc.py`.
+- Rebuild the pattern library after changing a source slide or a selector (in the skill folder): `uv run scripts/curate.py --winning "<path to winning_cases>"`, then `uv run scripts/catalog_doc.py`.
 - Run the tests (they look for `../winning_cases` and `../case comp cases`, or set `CASE_DECK_WINNING` and `CASE_DECK_CASES`):
 
   ```bash
-  python3 -m pip install pytest pypdf
-  PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python3 -m pytest -q
+  uv run pytest -q
   ```
 
 ## Credits

@@ -7,3 +7,4 @@ tests/fixtures/tajin/img/
 tests/fixtures/tajin/seeded_clean_spec.yaml
 .DS_Store
 ~$*.pptx
+.venv/

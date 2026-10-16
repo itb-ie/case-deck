@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.2 (2026-10-17)
+
+- Python dependencies move to `pyproject.toml` + `uv.lock`; everything runs in the skill's own `.venv` (`uv sync`, `uv run ...`). `requirements.txt` is gone. Nothing is installed globally.
+- SKILL.md runs every script with `uv run --project "$SKILL" ...` from the team's folder.
+- The self-test warns when it runs in the system Python.
+
 ## v0.1.1 (2026-10-17)
 
 - One file per deck: `build.py` adds the appendix navigation itself (`--no-nav` to skip), and `edit.py` refreshes it. Existing "Appendix ›" links on untouched slides stay as they are.

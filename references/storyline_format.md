@@ -102,7 +102,7 @@ Other slide fields: `section`, `notes` (speaker notes), `takeaway` and `takeaway
 
 Tables (`harvey_table`): `table:` is a list of rows; the first row holds the criteria, the first column the options. Harvey levels go in `h_r<row>_c<col>: 0-4`.
 
-Check before building: `python scripts/build.py deck_spec.yaml --check`. It lists unknown slots (with similar names), text longer than the box, missing images, and required boxes left empty.
+Check before building: `uv run --project "$SKILL" python "$SKILL/scripts/build.py" deck_spec.yaml --check`. It lists unknown slots (with similar names), text longer than the box, missing images, and required boxes left empty.
 
 ## 3. edit_spec.yaml (what edit.py reads)
 

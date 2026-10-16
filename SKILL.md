@@ -7,13 +7,13 @@ description: Build, edit, review and polish business case competition decks in t
 
 Turns a team's thinking into slides in the house style of the 2025 winning decks (Babeș-Bolyai and Guadalajara). The scripts do the layout; the team owns the storyline, every number and the final wording.
 
-All paths below are relative to this skill's folder. Run scripts with `python3 <skill folder>/scripts/<name>.py`. Work files (storyline, spec, decks) go in the team's own project folder, never inside the skill folder.
+`$SKILL` below means this skill's folder (where this file is). The scripts run in the skill's own uv environment, never in the system Python: run them from the team's project folder as `uv run --project "$SKILL" python "$SKILL/scripts/<name>.py" ...`. If `$SKILL/.venv` does not exist yet, run `uv sync` in `$SKILL` once. Work files (storyline, spec, decks) go in the team's own project folder, never inside the skill folder.
 
 ## First message in a session
 
 Say, in one or two lines:
 - check your competition's rules on AI before using this during the case: some ban it (Queen's ICBC) or ban all electronics (Champions Trophy), others say nothing (CBS, BBU-ICC). When rules are silent, ask the organisers in writing, and disclose AI use where required.
-- If `python3 scripts/selftest.py` has not been run on this laptop yet, run it now.
+- If `uv run --project "$SKILL" python "$SKILL/scripts/selftest.py"` has not been run on this laptop yet, run it now.
 
 ## Pick the mode from the request
 
@@ -31,9 +31,9 @@ Say, in one or two lines:
 2. If something essential is missing, ask at most 5 short questions: the case questions, the competition format (6H, 24H...), time left, who presents which section, 2 or 3 pillars.
 3. Write `storyline.md` in the team's folder (format: `references/storyline_format.md`). Follow the house skeleton. Every number gets a source, or `[ASSUMPTION: ...]` or `[SOURCE?]`. Never invent a number, a statistic or a quote.
 4. **Stop. Show the storyline and wait until the team approves or edits it.** No slides before that.
-5. Write `deck_spec.yaml` from the approved storyline. Run `python3 scripts/build.py deck_spec.yaml --check` and fix every error (box too long: shorten the text, never shrink fonts).
-6. Build: `python3 scripts/build.py deck_spec.yaml`. This writes one deck, with the appendix navigation already in it (zooms, "Appendix ›" links, sections). Then render: `python3 scripts/render.py <deck>.pptx --sheet sheet.png` and look at the sheet.
-7. Self-review: `python3 scripts/review.py <deck>.pptx`. Fix overflow, overlaps and leftovers in the spec and rebuild, **at most 2 rounds**.
+5. Write `deck_spec.yaml` from the approved storyline. Run `uv run --project "$SKILL" python "$SKILL/scripts/build.py" deck_spec.yaml --check` and fix every error (box too long: shorten the text, never shrink fonts).
+6. Build: `uv run --project "$SKILL" python "$SKILL/scripts/build.py" deck_spec.yaml`. This writes one deck, with the appendix navigation already in it (zooms, "Appendix ›" links, sections). Then render: `uv run --project "$SKILL" python "$SKILL/scripts/render.py" <deck>.pptx --sheet sheet.png` and look at the sheet.
+7. Self-review: `uv run --project "$SKILL" python "$SKILL/scripts/review.py" <deck>.pptx`. Fix overflow, overlaps and leftovers in the spec and rebuild, **at most 2 rounds**.
 8. Report: the deck path, slide count, open `[ASSUMPTION]`/`[SOURCE?]` items, image placeholders still grey, and what needs a human polish (photos, builds, final wording).
 
 Images the team did not give stay as labelled grey placeholders. Never use stock or AI-generated images.
@@ -41,13 +41,13 @@ Images the team did not give stay as labelled grey placeholders. Never use stock
 ## Mode 2: Edit
 
 1. Write `edit_spec.yaml` (format in `references/storyline_format.md`): `add`, `replace`, `move`, `delete`. Slide numbers refer to the deck as it is now.
-2. `python3 scripts/edit.py edit_spec.yaml --check`, then without `--check`. It writes `<deck>_v2.pptx` and confirms that every untouched slide is unchanged.
+2. `uv run --project "$SKILL" python "$SKILL/scripts/edit.py" edit_spec.yaml --check`, then without `--check`. It writes `<deck>_v2.pptx` and confirms that every untouched slide is unchanged.
 3. If the deck has navigation, `edit.py` refreshes it (new slides get their "Appendix ›" link, the index gets zooms for new backup slides).
 4. Works on decks made by hand in other templates too: new slides keep our style and colours.
 
 ## Mode 3: Review (slide quality plus the judge view)
 
-1. Run `python3 scripts/review.py <deck>.pptx --client "<company>" --out review.md`. Render the deck and look at every slide.
+1. Run `uv run --project "$SKILL" python "$SKILL/scripts/review.py" <deck>.pptx --client "<company>" --out review.md`. Render the deck and look at every slide.
 2. Report, ranked by severity, slide by slide, with a concrete fix each:
    - what `review.py` found (structure, titles, numbers that do not match, missing sources, leftovers, other companies' names, overflow, fonts, colours, AI patterns);
    - what you see in the renders that the script cannot: crowded slides, overlaps, unclear charts, weak hooks;
@@ -62,14 +62,14 @@ Images the team did not give stay as labelled grey placeholders. Never use stock
 ## Mode 4: AI-pattern pass
 
 Read `references/deslop.md` first.
-1. `python3 scripts/ai_check.py <deck>.pptx --client "<company>"` for the score, then `python3 scripts/deslop.py propose <deck>.pptx > worklist.json`.
+1. `uv run --project "$SKILL" python "$SKILL/scripts/ai_check.py" <deck>.pptx --client "<company>"` for the score, then `uv run --project "$SKILL" python "$SKILL/scripts/deslop.py" propose <deck>.pptx > worklist.json`.
 2. For each flagged paragraph, draft a rewrite in the team's voice: specific numbers and names, the client's own words, short sentences. Do not add facts that are not already in the deck.
 3. Show a before/after table per slide. **Apply only what the team approves:** write those lines to `edits.yaml` with `approved: true`.
-4. `python3 scripts/deslop.py apply <deck>.pptx edits.yaml -o <deck>_v2.pptx`. If it refuses (a number or name would change), fix that rewrite and run again. Report the score before and after.
+4. `uv run --project "$SKILL" python "$SKILL/scripts/deslop.py" apply <deck>.pptx edits.yaml -o <deck>_v2.pptx`. If it refuses (a number or name would change), fix that rewrite and run again. Report the score before and after.
 
 ## Mode 5: Navigation
 
-`build.py` adds navigation to every deck it builds, and `edit.py` keeps it current. Run `python3 scripts/navigate.py <deck>.pptx` yourself only for decks made by hand (they need an "Appendix. Index" slide). Navigation, as in the Zoom demo deck:
+`build.py` adds navigation to every deck it builds, and `edit.py` keeps it current. Run `uv run --project "$SKILL" python "$SKILL/scripts/navigate.py" <deck>.pptx` yourself only for decks made by hand (they need an "Appendix. Index" slide). Navigation, as in the Zoom demo deck:
 - PowerPoint sections (one per storyline section and appendix group);
 - Slide Zooms to every backup slide on the appendix index; after a backup slide, PowerPoint returns to the index;
 - a "‹ Back to presentation" button on the index (last slide viewed);

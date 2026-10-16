@@ -17,7 +17,7 @@ def main():
            "Generated from `assets/catalog.yaml` by `scripts/catalog_doc.py`. Every slide in a",
            "case-deck deck comes from one of these patterns. Slot names go under `slots:` in",
            "`deck_spec.yaml`; `max` is the number of characters the box holds.", "",
-           "Contact sheet: `tests/output/patterns_contact_sheet.png` (run `python scripts/render.py assets/patterns.pptx --sheet ...`).", ""]
+           "Contact sheet: `tests/output/patterns_contact_sheet.png` (in the skill folder: `uv run scripts/render.py assets/patterns.pptx --sheet sheet.png`).", ""]
     for k, (pid, p) in enumerate(cat["patterns"].items(), 1):
         if p.get("internal"):
             continue

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Quick install check. Run once after cloning:  python3 scripts/selftest.py"""
+"""Quick install check. Run once after cloning:  uv sync && uv run scripts/selftest.py"""
 from __future__ import annotations
 
 import importlib
@@ -27,12 +27,15 @@ def main():
     good = True
     print("case-deck self-test")
     good &= line(OK if sys.version_info >= (3, 9) else FAIL, f"Python {platform.python_version()} (3.9+ needed)")
+    in_venv = sys.prefix != getattr(sys, "base_prefix", sys.prefix)
+    line(OK if in_venv else WARN, "running in the skill's own environment" if in_venv
+         else "running in the system Python: use `uv sync` and `uv run scripts/selftest.py`")
     for mod, pip in (("pptx", "python-pptx"), ("lxml", "lxml"), ("PIL", "Pillow"), ("yaml", "PyYAML")):
         try:
             importlib.import_module(mod)
             good &= line(OK, f"{pip} installed")
         except ImportError:
-            good &= line(FAIL, f"{pip} missing: pip install -r requirements.txt")
+            good &= line(FAIL, f"{pip} missing: run `uv sync` in the skill folder")
     try:
         importlib.import_module("pypdf")
         line(OK, "pypdf installed (PowerPoint rendering)")

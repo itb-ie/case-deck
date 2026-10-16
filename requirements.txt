@@ -1,5 +1,0 @@
-python-pptx==1.0.2
-lxml>=4.9
-Pillow>=10.0
-PyYAML>=6.0
-pypdf>=4.0        # only for --engine powerpoint rendering

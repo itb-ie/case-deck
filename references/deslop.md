@@ -27,10 +27,10 @@ A single flagged word proves nothing: <!-- avoid-ai-writing:ignore-start -->"lev
 
 ## The workflow (mode 4 in SKILL.md)
 
-1. `python scripts/deslop.py propose deck.pptx > worklist.json` lists every flagged paragraph with the slide, the box, what was flagged and a suggested plain word.
+1. `uv run --project "$SKILL" python "$SKILL/scripts/deslop.py" propose deck.pptx > worklist.json` lists every flagged paragraph with the slide, the box, what was flagged and a suggested plain word.
 2. Claude drafts a rewrite for each paragraph, in the team's voice, and shows a before/after table per slide.
 3. The team approves, edits or rejects each line. Only lines marked `approved: true` go into `edits.yaml`.
-4. `python scripts/deslop.py apply deck.pptx edits.yaml -o deck_v2.pptx` applies them run by run. Fonts, sizes, colours and bold stay.
+4. `uv run --project "$SKILL" python "$SKILL/scripts/deslop.py" apply deck.pptx edits.yaml -o deck_v2.pptx` applies them run by run. Fonts, sizes, colours and bold stay.
 5. The score before and after is printed. If it is still above the limit, repeat for the remaining slides.
 
 ## What never changes
