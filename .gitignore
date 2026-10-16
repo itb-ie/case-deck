@@ -1,0 +1,9 @@
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+tests/output/
+tests/fixtures/tajin/img/
+tests/fixtures/tajin/seeded_clean_spec.yaml
+.DS_Store
+~$*.pptx

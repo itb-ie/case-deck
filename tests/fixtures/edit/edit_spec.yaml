@@ -1,0 +1,36 @@
+# Edit test: add 2 slides to a real hand-made team deck and move 1.
+deck: ../../output/IE_copy.pptx
+output: ../../output/IE_edited.pptx
+operations:
+- add:
+    pattern: mitigation
+    after: 12
+    section: Risks
+    slots:
+      title: Phase the esports roll-out and protect the brand to address the three main risks
+      m1_letter: A
+      m2_letter: B
+      m3_letter: C
+      m1_name: Brand alignment
+      m2_name: Audience engagement
+      m3_name: Revenue delay
+      m1_mitigation: Set **brand guidelines** with Fnatic before the first joint content goes live
+      m2_mitigation: Test formats with **two pilot tournaments** and keep the ones fans watch to the end
+      m3_mitigation: Tie partner fees to **audience targets** so costs follow revenue
+      m1_steps: [Joint brand board meets monthly, Shared content calendar, Approval rules for player content]
+      m2_steps: [Pilot two tournaments in year 1, Track watch time and retention, Drop formats below target]
+      m3_steps: [Variable fee above a minimum, Review targets every six months]
+      source: "Source: Team Analysis"
+- add:
+    pattern: chart_takeaways
+    at_end: true
+    appendix: true
+    group: Financials
+    slots:
+      title: "Annex 3: esports revenue builds over five years as sponsorship and media rights grow"
+      chart_head: Esports revenue by year (EUR m) [ASSUMPTION]
+      unit: Revenue, EUR m
+      chart: {categories: ["Y1", "Y2", "Y3", "Y4", "Y5"], series: {"Esports revenue": [1.0, 2.5, 4.0, 6.0, 8.5]}}
+      takeaways: ["Sponsorship is the first revenue stream", "", "Media rights start in year 3", "", "Break-even in year 3 [ASSUMPTION]"]
+      source: "Source: Team Analysis [SOURCE?]"
+- move: {slide: 7, after: 4}

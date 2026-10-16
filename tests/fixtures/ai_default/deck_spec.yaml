@@ -1,0 +1,62 @@
+# AI-default fixture: the Tajín storyline written the way a chatbot writes by
+# default. Used to show that ai_check.py separates it from the winning deck,
+# and to test deslop.py. Every number here also appears in the winning deck.
+# <!-- avoid-ai-writing:ignore-start -->  (the whole file is a specimen)
+deck:
+  title: Tajín AI-default specimen
+  client: Tajín
+  output: ai_default.pptx
+slides:
+- pattern: exec_summary
+  section: Executive Summary
+  slots:
+    question: "In today's fast-paced world, how can Tajín navigate the evolving landscape of Gen Z and Gen Alpha expectations?"
+    c1_head: Unlocking Flavor Innovation
+    c2_head: Fostering Cultural Connection
+    c3_head: Elevating Omnichannel Presence
+    c1_question: How can we leverage innovation to unlock new growth?
+    c2_question: How can we foster meaningful cultural engagement?
+    c3_question: How can we elevate the customer journey seamlessly?
+    c1_reco: ["**Holistic Flavor Ecosystem**", "A robust, game-changing approach that delves into bold new flavors"]
+    c2_reco: ["**Transformative Storytelling**", "It's not just packaging, it's a testament to Mexican heritage"]
+    c3_reco: ["**Seamless Experiences**", "Empowering consumers through cutting-edge, synergistic touchpoints"]
+    impact: "Impact: a pivotal opportunity to contribute USD ~130m in revenue by 2030"
+    source: "Source: Team Analysis"
+- pattern: three_cards
+  section: Analysis
+  slots:
+    title: "Tajín stands at a pivotal crossroads, poised to unlock transformative growth across a vibrant landscape"
+    c1_text: ["## Innovating Flavor Portfolios", "", "Tajín's rich tapestry of playful formats serves as a testament to its innovative spirit, fostering engagement and showcasing creativity."]
+    c2_text: ["## Owning Cultural Authenticity", "", "Moreover, Tajín's heritage underscores its commitment to authenticity, highlighting meaningful connections that truly resonate."]
+    c3_text: ["## Delivering Effortless Access", "", "Furthermore, by leveraging seamless omnichannel solutions, Tajín can empower consumers and elevate their journey."]
+    source: "Source: Team analysis"
+- pattern: pillar_overview
+  section: Sabores
+  slots:
+    title: "Elevating Sabores: a holistic strategy to unlock premium growth in an ever-changing world"
+    i1_name: ["Nurture Yaya", "**“Receta de la Abuela”**"]
+    i2_name: ["Transform Flavors", "**“Rutas del Sabor”**"]
+    i3_name: ["Create Snacks", "**“Antojo Jalisciense”**"]
+    i1_desc: "This robust initiative will delve into premium positioning, fostering a seamless and meaningful brand experience."
+    i2_desc: "It's not merely about flavors; it's about crafting a transformative journey that resonates globally."
+    i3_desc: "By leveraging strategic partnerships, Tajín can unlock synergies and elevate its presence in a dynamic landscape."
+    i1_case: "**Tabasco** serves as a testament to global ubiquity, showcasing the power of consistency."
+    i2_case: "**McDonald’s** highlights how limited editions can foster excitement and drive engagement."
+    i3_case: "**Cheetos** underscores how bold marketing can unlock a cultural phenomenon."
+    i1_stat1: 195+
+    i1_label1: Countries sold across 36 languages
+    i2_stat1: 6.5%
+    i2_label1: Increase in global comparable sales
+    i3_stat1: $3B
+    i3_label1: Retail sales
+    source: "Source: Tabasco, BBR, McDonald’s, Cheetos, Accio"
+- pattern: text_content
+  section: Impact
+  slots:
+    title: "In conclusion, a transformative roadmap to navigate the future"
+    body:
+    - "Imagine a world where every Gen Z snacker reaches for Tajín."
+    - "Ultimately, this holistic approach empowers Tajín to unlock sustainable, game-changing growth."
+    - "I hope this helps frame the next steps — let me know if you'd like a revised version!"
+    source: "Source: Team Analysis"
+# <!-- avoid-ai-writing:ignore-end -->

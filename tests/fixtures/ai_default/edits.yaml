@@ -1,0 +1,65 @@
+# Rewrites for the AI-default specimen, as Claude drafts them in de-slop mode
+# and the team approves them. Numbers and names stay exactly as they were.
+# <!-- avoid-ai-writing:ignore-start -->
+edits:
+- {slide: 1, box: question, approved: true,
+   find: "In today's fast-paced world, how can Tajín navigate the evolving landscape of Gen Z and Gen Alpha expectations?",
+   replace: "How can Tajín stay on the table, in the backpack and on the feed of Gen Z and Gen Alpha?"}
+- {slide: 1, box: c1_head, approved: true, find: "Unlocking Flavor Innovation", replace: "Sabores de México"}
+- {slide: 1, box: c2_head, approved: true, find: "Fostering Cultural Connection", replace: "Alma de Jalisco"}
+- {slide: 1, box: c3_head, approved: true, find: "Elevating Omnichannel Presence", replace: "Llegar al mundo"}
+- {slide: 1, box: c1_question, approved: true, find: "How can we leverage innovation to unlock new growth?",
+   replace: "How do we launch new flavors and formats without diluting the chile-lime base?"}
+- {slide: 1, box: c2_question, approved: true, find: "How can we foster meaningful cultural engagement?",
+   replace: "How do we use the brand's culture to win customers abroad?"}
+- {slide: 1, box: c3_question, approved: true, find: "How can we elevate the customer journey seamlessly?",
+   replace: "Which channels turn first-time buyers into a community?"}
+- {slide: 1, box: c1_reco, approved: true, find: "Holistic Flavor Ecosystem", replace: "Global Flavor Playgrounds"}
+- {slide: 1, box: c1_reco, approved: true, find: "A robust, game-changing approach that delves into bold new flavors",
+   replace: "Bold new flavors and formats, tested market by market"}
+- {slide: 1, box: c2_reco, approved: true, find: "Transformative Storytelling", replace: "Stories in every pack"}
+- {slide: 1, box: c2_reco, approved: true, find: "It's not just packaging, it's a testament to Mexican heritage",
+   replace: "QR codes on pack show where the chile and lime come from, and Mexican heritage"}
+- {slide: 1, box: c3_reco, approved: true, find: "Seamless Experiences", replace: "Pop-ups and TikTok Shop"}
+- {slide: 1, box: c3_reco, approved: true, find: "Empowering consumers through cutting-edge, synergistic touchpoints",
+   replace: "Sample on fresh fruit in street markets, then sell through creator storefronts"}
+- {slide: 1, box: impact, approved: true, find: "a pivotal opportunity to contribute USD ~130m in revenue by 2030",
+   replace: "contribute USD ~130m in revenue by 2030"}
+- {slide: 2, box: title, approved: true,
+   find: "Tajín stands at a pivotal crossroads, poised to unlock transformative growth across a vibrant landscape",
+   replace: "Tajín can grow where its flavors, its roots and easy buying meet"}
+- {slide: 2, box: c1_text, approved: true,
+   find: "Tajín's rich tapestry of playful formats serves as a testament to its innovative spirit, fostering engagement and showcasing creativity.",
+   replace: "Tajín's playful formats and snack co-creations turn flavor into something fans take part in."}
+- {slide: 2, box: c2_text, approved: true,
+   find: "Moreover, Tajín's heritage underscores its commitment to authenticity, highlighting meaningful connections that truly resonate.",
+   replace: "Tajín's heritage and stories reflect a real identity; sustainability work can deepen loyalty."}
+- {slide: 2, box: c3_text, approved: true,
+   find: "Furthermore, by leveraging seamless omnichannel solutions, Tajín can empower consumers and elevate their journey.",
+   replace: "Awareness is strong but access is weak; Tajín should sell online and in hybrid formats."}
+- {slide: 3, box: title, approved: true, find: "Elevating Sabores: a holistic strategy to unlock premium growth in an ever-changing world",
+   replace: "Grow the first pillar through premium salsa, regional variants and co-branded snacks"}
+- {slide: 3, box: i1_desc, approved: true,
+   find: "This robust initiative will delve into premium positioning, fostering a seamless and meaningful brand experience.",
+   replace: "Position the premium salsa for everyday cooking and gifting."}
+- {slide: 3, box: i2_desc, approved: true,
+   find: "It's not merely about flavors; it's about crafting a transformative journey that resonates globally.",
+   replace: "Adapt the signature blend to local palates with limited-edition regional variants."}
+- {slide: 3, box: i3_desc, approved: true,
+   find: "By leveraging strategic partnerships, Tajín can unlock synergies and elevate its presence in a dynamic landscape.",
+   replace: "Partner with snack brands so Tajín reaches new households through their shelves."}
+- {slide: 3, box: i1_case, approved: true, find: "serves as a testament to global ubiquity, showcasing the power of consistency.",
+   replace: "sells one consistent product around the world without losing its identity."}
+- {slide: 3, box: i2_case, approved: true, find: "highlights how limited editions can foster excitement and drive engagement.",
+   replace: "used a limited menu of favorites to get customers to try regional products."}
+- {slide: 3, box: i3_case, approved: true, find: "underscores how bold marketing can unlock a cultural phenomenon.",
+   replace: "turned one flavor into a youth trend through bold marketing and community pride."}
+- {slide: 4, box: title, approved: true, find: "In conclusion, a transformative roadmap to navigate the future",
+   replace: "Pilot in two cities first, then scale what works"}
+- {slide: 4, box: body, approved: true, find: "Imagine a world where every Gen Z snacker reaches for Tajín.",
+   replace: "Goal: make Tajín the seasoning Gen Z reaches for first."}
+- {slide: 4, box: body, approved: true, find: "Ultimately, this holistic approach empowers Tajín to unlock sustainable, game-changing growth.",
+   replace: "Each pilot has a target and a stop rule, so Tajín only scales what pays back."}
+- {slide: 4, box: body, approved: true, find: "I hope this helps frame the next steps — let me know if you'd like a revised version!",
+   replace: "Next step: agree the two pilot cities and owners this month."}
+# <!-- avoid-ai-writing:ignore-end -->

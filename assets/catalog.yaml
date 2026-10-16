@@ -1,0 +1,2772 @@
+version: 1
+slide_width: 12192000
+slide_height: 6858000
+patterns:
+  title:
+    purpose: 'Cover slide: full-width photo, deck title, team photos and names, client logo.'
+    when_to_use: First slide of every deck.
+    source: Mexico 24H Case.pptx slide 1
+    layout: Blank
+    slots:
+      title:
+        type: text
+        max_chars: 45
+        font_pt: 44.0
+        sample: '[Deck title: short and evocative]'
+      hero_image:
+        type: image
+        label: hero photo of the client
+        aspect: 2.61
+      client_logo:
+        type: image
+        optional: true
+        label: client logo
+        aspect: 1.5
+      m1_photo:
+        type: photo
+        optional: true
+      m2_photo:
+        type: photo
+        optional: true
+      m3_photo:
+        type: photo
+        optional: true
+      m4_photo:
+        type: photo
+        optional: true
+      m1_name:
+        type: text
+        max_chars: 15
+        font_pt: 16.0
+        sample: '[Name 1]'
+      m2_name:
+        type: text
+        max_chars: 15
+        font_pt: 16.0
+        sample: '[Name 2]'
+      m3_name:
+        type: text
+        max_chars: 17
+        font_pt: 16.0
+        sample: '[Name 3]'
+      m4_name:
+        type: text
+        max_chars: 16
+        font_pt: 16.0
+        sample: '[Name 4]'
+    repeat:
+    - prefix: m
+      count: 4
+      min: 2
+      axis: x
+      mode: move
+  exec_summary:
+    purpose: 'Answer-first overview: the central question, case questions as pillars, one recommendation per pillar,
+      headline impact.'
+    when_to_use: Slide 2, and again just before the closing slide.
+    source: Mexico 24H Case.pptx slide 2
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: An overview of our approach
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Executive Summary
+      question:
+        type: text
+        max_chars: 213
+        font_pt: 18.0
+        sample: '[The central question of the case, in one sentence]'
+      c1_num:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: '1'
+      c2_num:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: '2'
+      c3_num:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: '3'
+      c1_head:
+        type: text
+        max_chars: 58
+        font_pt: 16.0
+        sample: '[Pillar 1 name]'
+      c2_head:
+        type: text
+        max_chars: 58
+        font_pt: 16.0
+        sample: '[Pillar 2 name]'
+      c3_head:
+        type: text
+        max_chars: 58
+        font_pt: 16.0
+        sample: '[Pillar 3 name]'
+      c1_question:
+        type: text
+        max_chars: 144
+        font_pt: 14.0
+        sample: '[Case question 1 as asked]'
+      c2_question:
+        type: text
+        max_chars: 148
+        font_pt: 14.0
+        sample: '[Case question 2 as asked]'
+      c3_question:
+        type: text
+        max_chars: 148
+        font_pt: 14.0
+        sample: '[Case question 3 as asked]'
+      c1_reco:
+        type: text
+        max_chars: 141
+        font_pt: 14.0
+        sample:
+        - '**[Recommendation 1 name]**'
+        - '[One line on what it does]'
+      c2_reco:
+        type: text
+        max_chars: 166
+        font_pt: 14.0
+        sample:
+        - '**[Recommendation 2 name]**'
+        - '[One line on what it does]'
+      c3_reco:
+        type: text
+        max_chars: 138
+        font_pt: 14.0
+        sample:
+        - '**[Recommendation 3 name]**'
+        - '[One line on what it does]'
+      impact:
+        type: text
+        max_chars: 194
+        font_pt: 16.0
+        sample: 'Impact: [headline number, e.g. USD ~00m revenue by 2030]'
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: Team Analysis'
+    repeat:
+    - prefix: c
+      count: 3
+      min: 2
+      axis: x
+      mode: resize
+  section_divider:
+    purpose: Section break with a full-bleed photo, the section name and who presents it.
+    when_to_use: Before Analysis, Strategy, Impact (each presenter hand-off).
+    source: Mexico 24H Case.pptx slide 3
+    layout: Blank
+    slots:
+      section:
+        type: text
+        max_chars: 21
+        font_pt: 48.0
+        sample: '[Section]'
+      presenter:
+        type: text
+        max_chars: 45
+        font_pt: 20.0
+        sample: '[Presenter name]'
+      image:
+        type: image
+        label: section photo
+        aspect: 1.778
+  company_position:
+    purpose: 'Where the company stands: 3 big numbers, what they mean, core competencies, and a growth-potential
+      map.'
+    when_to_use: First Analysis slide.
+    source: Mexico 24H Case.pptx slide 4
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title: what the company has and what it must decide now]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Analysis
+      left_head:
+        type: text
+        max_chars: 47
+        font_pt: 16.0
+        sample: '[While the company leads in ...]'
+      right_head:
+        type: text
+        max_chars: 62
+        font_pt: 16.0
+        sample: '[... it must now decide ...]'
+      stat1_value:
+        type: text
+        max_chars: 8
+        font_pt: 24.0
+        sample: 00+
+      stat2_value:
+        type: text
+        max_chars: 8
+        font_pt: 24.0
+        sample: 00+
+      stat3_value:
+        type: text
+        max_chars: 8
+        font_pt: 24.0
+        sample: 00+
+      stat1_label:
+        type: text
+        max_chars: 31
+        font_pt: 14.0
+        sample: '[What number 1 counts]'
+      stat2_label:
+        type: text
+        max_chars: 33
+        font_pt: 14.0
+        sample: '[What number 2 counts]'
+      stat3_label:
+        type: text
+        max_chars: 31
+        font_pt: 14.0
+        sample: '[What number 3 counts]'
+      strength1:
+        type: text
+        max_chars: 71
+        font_pt: 14.0
+        sample: '[Strength 1 and what it allows]'
+      strength2:
+        type: text
+        max_chars: 71
+        font_pt: 14.0
+        sample: '[Strength 2 and what it allows]'
+      strength3:
+        type: text
+        max_chars: 65
+        font_pt: 14.0
+        sample: '[Strength 3 and what it allows]'
+      comp_head:
+        type: text
+        max_chars: 48
+        font_pt: 16.0
+        sample: Core Competencies
+      comp1:
+        type: text
+        max_chars: 48
+        font_pt: 14.0
+        sample: '[Competency 1]'
+      comp2:
+        type: text
+        max_chars: 46
+        font_pt: 14.0
+        sample: '[Competency 2]'
+      comp3:
+        type: text
+        max_chars: 62
+        font_pt: 14.0
+        sample: '[Competency 3]'
+      map_head:
+        type: text
+        max_chars: 32
+        font_pt: 14.0
+        sample: '[Y axis: e.g. Growth potential]'
+      map_x:
+        type: text
+        max_chars: 29
+        font_pt: 14.0
+        sample: '[X axis label]'
+      map1:
+        type: text
+        optional: true
+        max_chars: 66
+        font_pt: 12.0
+        sample: '[Option A]'
+      map2:
+        type: text
+        optional: true
+        max_chars: 54
+        font_pt: 12.0
+        sample: '[Option B]'
+      map3:
+        type: text
+        optional: true
+        max_chars: 42
+        font_pt: 12.0
+        sample: '[Option C]'
+      map4:
+        type: text
+        optional: true
+        max_chars: 42
+        font_pt: 12.0
+        sample: '[Option D]'
+      map5:
+        type: text
+        optional: true
+        max_chars: 28
+        font_pt: 12.0
+        sample: '[Option E]'
+      map6:
+        type: text
+        optional: true
+        max_chars: 60
+        font_pt: 12.0
+        sample: '[Option F]'
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: [Source]'
+  trends:
+    purpose: 'Market or customer trends: 2-3 columns, each with a photo, 2 sourced numbers and a one-line takeaway.'
+    when_to_use: Analysis section, after the company slide.
+    source: Mexico 24H Case.pptx slide 5
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title: what customers now expect]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Analysis
+      t1_image:
+        type: image
+        label: trend 1 photo
+        aspect: 1.514
+      t1_head:
+        type: text
+        max_chars: 21
+        font_pt: 18.0
+        sample: '[Trend 1]'
+      t1_stat1:
+        type: text
+        max_chars: 10
+        font_pt: 14.0
+        sample: 00%
+      t1_label1:
+        type: text
+        max_chars: 39
+        font_pt: 14.0
+        sample: '[What it measures]'
+      t1_stat2:
+        type: text
+        max_chars: 9
+        font_pt: 14.0
+        sample: 0x
+      t1_label2:
+        type: text
+        max_chars: 47
+        font_pt: 14.0
+        sample: '[What it measures]'
+      t1_takeaway:
+        type: text
+        max_chars: 41
+        font_pt: 16.0
+        sample: '[So what for the client]'
+      t2_image:
+        type: image
+        label: trend 2 photo
+        aspect: 1.5
+      t2_head:
+        type: text
+        max_chars: 24
+        font_pt: 18.0
+        sample: '[Trend 2]'
+      t2_stat1:
+        type: text
+        max_chars: 9
+        font_pt: 14.0
+        sample: 00%
+      t2_label1:
+        type: text
+        max_chars: 47
+        font_pt: 14.0
+        sample: '[What it measures]'
+      t2_stat2:
+        type: text
+        max_chars: 9
+        font_pt: 14.0
+        sample: 00%
+      t2_label2:
+        type: text
+        max_chars: 36
+        font_pt: 14.0
+        sample: '[What it measures]'
+      t2_takeaway:
+        type: text
+        max_chars: 58
+        font_pt: 16.0
+        sample: '[So what for the client]'
+      t3_image:
+        type: image
+        label: trend 3 photo
+        aspect: 1.496
+      t3_head:
+        type: text
+        max_chars: 25
+        font_pt: 18.0
+        sample: '[Trend 3]'
+      t3_stat1:
+        type: text
+        max_chars: 9
+        font_pt: 14.0
+        sample: 00%
+      t3_label1:
+        type: text
+        max_chars: 42
+        font_pt: 14.0
+        sample: '[What it measures]'
+      t3_stat2:
+        type: text
+        max_chars: 9
+        font_pt: 14.0
+        sample: 00%
+      t3_label2:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: '[What it measures]'
+      t3_takeaway:
+        type: text
+        max_chars: 65
+        font_pt: 16.0
+        sample: '[So what for the client]'
+      source:
+        type: text
+        max_chars: 149
+        font_pt: 9.0
+        sample: 'Source: [Sources for every number]'
+    repeat:
+    - prefix: t
+      count: 3
+      min: 2
+      axis: x
+      mode: move
+  hook_image:
+    purpose: 'The hook: one full-bleed photo, no text. The presenter tells the human story out loud.'
+    when_to_use: After the company context, before the analysis gets deep.
+    source: Mexico 24H Case.pptx slide 6
+    layout: Default
+    slots:
+      image:
+        type: image
+        label: hook photo (a real person or moment)
+        aspect: 1.704
+  matrix_takeaways:
+    purpose: A 2x2 positioning map (e.g. products by profitability vs relevance) with key takeaways on the right.
+    when_to_use: 'Analysis: to show where to play.'
+    source: Mexico 24H Case.pptx slide 7
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title: where the client should double down]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Analysis
+      chart_head:
+        type: text
+        max_chars: 72
+        font_pt: 14.0
+        sample: '[What the map plots]'
+      y_axis:
+        type: text
+        max_chars: 39
+        font_pt: 14.0
+        sample: '[Y axis]'
+      x_axis:
+        type: text
+        max_chars: 33
+        font_pt: 14.0
+        sample: '[X axis]'
+      takeaways_head:
+        type: text
+        max_chars: 35
+        font_pt: 14.0
+        sample: Key takeaways and action points
+      takeaways:
+        type: text
+        max_chars: 544
+        font_pt: 14.0
+        sample:
+        - '**[Takeaway 1]:** [what it means and what to do]'
+        - ''
+        - '**[Takeaway 2]:** [what it means and what to do]'
+        - ''
+        - '**[Takeaway 3]:** [what it means and what to do]'
+      item1:
+        type: text
+        optional: true
+        max_chars: 60
+        font_pt: 12.0
+        sample: '[Item 1]'
+      item2:
+        type: text
+        optional: true
+        max_chars: 26
+        font_pt: 12.0
+        sample: '[Item 2]'
+      item3:
+        type: text
+        optional: true
+        max_chars: 60
+        font_pt: 12.0
+        sample: '[Item 3]'
+      item4:
+        type: text
+        optional: true
+        max_chars: 20
+        font_pt: 12.0
+        sample: '[Item 4]'
+      item5:
+        type: text
+        optional: true
+        max_chars: 60
+        font_pt: 12.0
+        sample: '[Item 5]'
+      item6:
+        type: text
+        optional: true
+        max_chars: 27
+        font_pt: 12.0
+        sample: '[Item 6]'
+      item7:
+        type: text
+        optional: true
+        max_chars: 27
+        font_pt: 12.0
+        sample: '[Item 7]'
+      item8:
+        type: text
+        optional: true
+        max_chars: 27
+        font_pt: 12.0
+        sample: '[Item 8]'
+      source:
+        type: text
+        max_chars: 140
+        font_pt: 9.0
+        sample: 'Source: [Source]'
+  three_cards:
+    purpose: 2-3 photo cards, each with a bold heading and a short paragraph (e.g. strengths x opportunities).
+    when_to_use: Analysis synthesis, or any 'three things' message.
+    source: Mexico 24H Case.pptx slide 8
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title: where strengths meet opportunities]'
+      subtitle:
+        type: text
+        optional: true
+        max_chars: 122
+        font_pt: 14.0
+        sample: '[Guiding question for this slide]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Analysis
+      c1_image:
+        type: image
+        label: card 1 photo
+        aspect: 1.546
+      c2_image:
+        type: image
+        label: card 2 photo
+        aspect: 1.609
+      c3_image:
+        type: image
+        label: card 3 photo
+        aspect: 1.588
+      c1_text:
+        type: text
+        max_chars: 187
+        font_pt: 16.0
+        sample:
+        - '## [Card 1 heading]'
+        - ''
+        - '[Two or three lines with the evidence and the **key phrase** in bold]'
+      c2_text:
+        type: text
+        max_chars: 210
+        font_pt: 16.0
+        sample:
+        - '## [Card 2 heading]'
+        - ''
+        - '[Two or three lines with the evidence and the **key phrase** in bold]'
+      c3_text:
+        type: text
+        max_chars: 174
+        font_pt: 16.0
+        sample:
+        - '## [Card 3 heading]'
+        - ''
+        - '[Two or three lines with the evidence and the **key phrase** in bold]'
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: [Source]'
+    repeat:
+    - prefix: c
+      count: 3
+      min: 2
+      axis: x
+      mode: resize
+  takeaway_overlay:
+    purpose: 'Internal: the dark ''Key Takeaway'' band laid over a copy of a slide. Use the takeaway field on any
+      slide instead.'
+    when_to_use: Never directly; build.py adds it when a slide has `takeaway:`.
+    source: Mexico 24H Case.pptx slide 9
+    layout: Default
+    slots:
+      takeaway_head:
+        type: text
+        max_chars: 220
+        font_pt: 25.0
+        sample: Key Takeaway
+      takeaway:
+        type: text
+        max_chars: 345
+        font_pt: 20.0
+        sample: '[The one sentence the judges should remember]'
+    internal: true
+  prioritization:
+    purpose: 'Impact x feasibility matrix: the criteria used, the options as labelled dots in clusters, a legend
+      and the conclusion.'
+    when_to_use: 'Start of Strategy: show which options you chose and which you rejected.'
+    source: Mexico 24H Case.pptx slide 11
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title: how we selected the strategies]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Strategy
+      criterion1:
+        type: text
+        max_chars: 44
+        font_pt: 14.0
+        sample: '[Criterion 1]'
+      criterion2:
+        type: text
+        max_chars: 44
+        font_pt: 14.0
+        sample: '[Criterion 2]'
+      criterion3:
+        type: text
+        max_chars: 46
+        font_pt: 14.0
+        sample: '[Criterion 3]'
+      criterion4:
+        type: text
+        max_chars: 46
+        font_pt: 14.0
+        sample: '[Criterion 4]'
+      legend1:
+        type: text
+        max_chars: 185
+        font_pt: 12.0
+        sample:
+        - High impact and feasible to implement
+        - '[What these options have in common]'
+      legend2:
+        type: text
+        max_chars: 55
+        font_pt: 12.0
+        sample: High impact but requires high investment
+      legend3:
+        type: text
+        max_chars: 57
+        font_pt: 12.0
+        sample: Easy to implement but small impact
+      legend4:
+        type: text
+        max_chars: 80
+        font_pt: 12.0
+        sample: Low impact and difficult to implement
+      conclusion:
+        type: text
+        max_chars: 106
+        font_pt: 14.0
+        sample: '[The selection logic in one sentence]'
+      opt1:
+        type: text
+        optional: true
+        max_chars: 30
+        font_pt: 10.0
+        sample: '[Option 1]'
+      opt2:
+        type: text
+        optional: true
+        max_chars: 30
+        font_pt: 10.0
+        sample: '[Option 2]'
+      opt3:
+        type: text
+        optional: true
+        max_chars: 30
+        font_pt: 10.0
+        sample: '[Option 3]'
+      opt4:
+        type: text
+        optional: true
+        max_chars: 20
+        font_pt: 10.0
+        sample: '[Option 4]'
+      opt5:
+        type: text
+        optional: true
+        max_chars: 30
+        font_pt: 10.0
+        sample: '[Option 5]'
+      opt6:
+        type: text
+        optional: true
+        max_chars: 36
+        font_pt: 10.0
+        sample: '[Option 6]'
+      opt7:
+        type: text
+        optional: true
+        max_chars: 30
+        font_pt: 10.0
+        sample: '[Option 7]'
+      opt8:
+        type: text
+        optional: true
+        max_chars: 30
+        font_pt: 10.0
+        sample: '[Option 8]'
+      opt9:
+        type: text
+        optional: true
+        max_chars: 14
+        font_pt: 10.0
+        sample: '[Option 9]'
+      opt10:
+        type: text
+        optional: true
+        max_chars: 22
+        font_pt: 10.0
+        sample: '[Option 10]'
+      opt11:
+        type: text
+        optional: true
+        max_chars: 34
+        font_pt: 10.0
+        sample: '[Option 11]'
+      opt12:
+        type: text
+        optional: true
+        max_chars: 28
+        font_pt: 10.0
+        sample: '[Option 12]'
+      opt13:
+        type: text
+        optional: true
+        max_chars: 24
+        font_pt: 10.0
+        sample: '[Option 13]'
+      opt14:
+        type: text
+        optional: true
+        max_chars: 30
+        font_pt: 10.0
+        sample: '[Option 14]'
+      opt15:
+        type: text
+        optional: true
+        max_chars: 50
+        font_pt: 10.0
+        sample: '[Option 15]'
+      opt16:
+        type: text
+        optional: true
+        max_chars: 30
+        font_pt: 10.0
+        sample: '[Option 16]'
+      opt17:
+        type: text
+        optional: true
+        max_chars: 20
+        font_pt: 10.0
+        sample: '[Option 17]'
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: Team Analysis'
+  strategy_tree:
+    purpose: '''Our perspective'': the central question split into 3 areas, each with sub-areas and the initiatives
+      under them.'
+    when_to_use: Strategy section, after prioritisation. Delete boxes you do not need.
+    source: Mexico 24H Case.pptx slide 12
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: Our perspective on the strategic approaches [client] should follow
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Strategy
+      question:
+        type: text
+        max_chars: 216
+        font_pt: 12.0
+        sample: '[“The central question of the case”]'
+      b1:
+        type: text
+        max_chars: 33
+        font_pt: 16.0
+        sample: '[Area 1]'
+      b2:
+        type: text
+        max_chars: 33
+        font_pt: 16.0
+        sample: '[Area 2]'
+      b3:
+        type: text
+        max_chars: 33
+        font_pt: 16.0
+        sample: '[Area 3]'
+      b1_l1:
+        type: text
+        optional: true
+        max_chars: 33
+        font_pt: 14.0
+        sample: '[Initiative]'
+      b1_l2:
+        type: text
+        optional: true
+        max_chars: 35
+        font_pt: 14.0
+        sample: '[Initiative]'
+      b1_l3:
+        type: text
+        optional: true
+        max_chars: 33
+        font_pt: 14.0
+        sample: '[Initiative]'
+      b2_m1:
+        type: text
+        optional: true
+        max_chars: 16
+        font_pt: 16.0
+        sample: '[Sub-area]'
+      b2_m1_l1:
+        type: text
+        optional: true
+        max_chars: 36
+        font_pt: 14.0
+        sample: '[Initiative]'
+      b2_m1_l2:
+        type: text
+        optional: true
+        max_chars: 33
+        font_pt: 14.0
+        sample: '[Initiative]'
+      b2_m2:
+        type: text
+        optional: true
+        max_chars: 13
+        font_pt: 16.0
+        sample: '[Sub-area]'
+      b2_m2_l1:
+        type: text
+        optional: true
+        max_chars: 33
+        font_pt: 14.0
+        sample: '[Initiative]'
+      b3_m1:
+        type: text
+        optional: true
+        max_chars: 13
+        font_pt: 16.0
+        sample: '[Sub-area]'
+      b3_m1_l1:
+        type: text
+        optional: true
+        max_chars: 33
+        font_pt: 14.0
+        sample: '[Initiative]'
+      b3_m2:
+        type: text
+        optional: true
+        max_chars: 13
+        font_pt: 16.0
+        sample: '[Sub-area]'
+      b3_m2_l1:
+        type: text
+        optional: true
+        max_chars: 33
+        font_pt: 14.0
+        sample: '[Initiative]'
+      b3_m2_l2:
+        type: text
+        optional: true
+        max_chars: 33
+        font_pt: 14.0
+        sample: '[Initiative]'
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: Team Analysis'
+  issue_tree:
+    purpose: 'Regular issue tree: main question, 2 drivers, 2 secondary drivers each, 2 underlying drivers each.'
+    when_to_use: Analysis or appendix, when the structure is symmetric.
+    source: PowerPoint Template.pptx slide 174
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title for the issue tree]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Analysis
+      root:
+        type: text
+        max_chars: 104
+        font_pt: 12.0
+        sample: '[Main question]'
+      d1:
+        type: text
+        max_chars: 77
+        font_pt: 12.0
+        sample: '[Driver 1]'
+      d2:
+        type: text
+        max_chars: 77
+        font_pt: 12.0
+        sample: '[Driver 2]'
+      d1_s1:
+        type: text
+        optional: true
+        max_chars: 32
+        font_pt: 12.0
+        sample: '[Secondary driver]'
+      d1_s2:
+        type: text
+        optional: true
+        max_chars: 32
+        font_pt: 12.0
+        sample: '[Secondary driver]'
+      d2_s1:
+        type: text
+        optional: true
+        max_chars: 32
+        font_pt: 12.0
+        sample: '[Secondary driver]'
+      d2_s2:
+        type: text
+        optional: true
+        max_chars: 32
+        font_pt: 12.0
+        sample: '[Secondary driver]'
+      d1_s1_u1:
+        type: text
+        optional: true
+        max_chars: 50
+        font_pt: 12.0
+        sample: '[Underlying driver]'
+      d1_s1_u2:
+        type: text
+        optional: true
+        max_chars: 50
+        font_pt: 12.0
+        sample: '[Underlying driver]'
+      d1_s2_u1:
+        type: text
+        optional: true
+        max_chars: 50
+        font_pt: 12.0
+        sample: '[Underlying driver]'
+      d1_s2_u2:
+        type: text
+        optional: true
+        max_chars: 50
+        font_pt: 12.0
+        sample: '[Underlying driver]'
+      d2_s1_u1:
+        type: text
+        optional: true
+        max_chars: 50
+        font_pt: 12.0
+        sample: '[Underlying driver]'
+      d2_s1_u2:
+        type: text
+        optional: true
+        max_chars: 50
+        font_pt: 12.0
+        sample: '[Underlying driver]'
+      d2_s2_u1:
+        type: text
+        optional: true
+        max_chars: 50
+        font_pt: 12.0
+        sample: '[Underlying driver]'
+      d2_s2_u2:
+        type: text
+        optional: true
+        max_chars: 50
+        font_pt: 12.0
+        sample: '[Underlying driver]'
+      source:
+        type: text
+        sample: 'Source: [Source]'
+        max_chars: 140
+        font_pt: 9.0
+  framework:
+    purpose: 'The strategy framework (acronym): 2-3 photo cards with number, pillar name and the ''How do we...?''
+      question.'
+    when_to_use: Strategy section. Also used as the pillar tracker (set `current:`).
+    source: Mexico 24H Case.pptx slide 13
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: A [ACRONYM] strategy to guide [client]
+      subtitle:
+        type: text
+        max_chars: 107
+        font_pt: 16.0
+        sample: '[One line on what the framework achieves]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Strategy
+      p1_image:
+        type: image
+        label: pillar 1 photo
+        aspect: 0.776
+      p2_image:
+        type: image
+        label: pillar 2 photo
+        aspect: 0.776
+      p3_image:
+        type: image
+        label: pillar 3 photo
+        aspect: 0.774
+      p1_shade:
+        type: marker
+      p2_shade:
+        type: marker
+      p3_shade:
+        type: marker
+      p1_num:
+        type: text
+        max_chars: 8
+        font_pt: 36.0
+        sample: '01'
+      p2_num:
+        type: text
+        max_chars: 8
+        font_pt: 36.0
+        sample: '02'
+      p3_num:
+        type: text
+        max_chars: 8
+        font_pt: 36.0
+        sample: '03'
+      p1_text:
+        type: text
+        max_chars: 128
+        font_pt: 12.0
+        sample:
+        - '## [Pillar 1]'
+        - '[How can we ...?]'
+      p2_text:
+        type: text
+        max_chars: 128
+        font_pt: 12.0
+        sample:
+        - '## [Pillar 2]'
+        - '[How can we ...?]'
+      p3_text:
+        type: text
+        max_chars: 140
+        font_pt: 12.0
+        sample:
+        - '## [Pillar 3]'
+        - '[How can we ...?]'
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: Team Analysis'
+    repeat:
+    - prefix: p
+      count: 3
+      min: 2
+      axis: x
+      mode: resize
+    tracker_mode: 'Set `current: <k>` to brighten pillar k and keep the others shaded.'
+  pillar_overview:
+    purpose: 'A pillar''s key strategies: 2-3 rows, each a branded initiative, what it does, and a success case
+      with numbers.'
+    when_to_use: First slide of each pillar block.
+    source: Mexico 24H Case.pptx slide 15
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title: what this pillar achieves through which initiatives]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: '[Pillar]'
+      left_head:
+        type: text
+        max_chars: 29
+        font_pt: 14.0
+        sample: Key strategies
+      right_head:
+        type: text
+        max_chars: 20
+        font_pt: 14.0
+        sample: Success case study
+      i1_num:
+        type: text
+        max_chars: 8
+        font_pt: 12.0
+        sample: '1'
+      i2_num:
+        type: text
+        max_chars: 8
+        font_pt: 12.0
+        sample: '2'
+      i3_num:
+        type: text
+        max_chars: 8
+        font_pt: 12.0
+        sample: '3'
+      i1_name:
+        type: text
+        max_chars: 65
+        font_pt: 14.0
+        sample:
+        - '[Verb + object]'
+        - '**“[Branded name]”**'
+      i2_name:
+        type: text
+        max_chars: 65
+        font_pt: 14.0
+        sample:
+        - '[Verb + object]'
+        - '**“[Branded name]”**'
+      i3_name:
+        type: text
+        max_chars: 65
+        font_pt: 14.0
+        sample:
+        - '[Verb + object]'
+        - '**“[Branded name]”**'
+      i1_desc:
+        type: text
+        max_chars: 172
+        font_pt: 12.0
+        sample: '[What the initiative does, for whom, with the **key phrase** in bold]'
+      i2_desc:
+        type: text
+        max_chars: 186
+        font_pt: 12.0
+        sample: '[What the initiative does, for whom, with the **key phrase** in bold]'
+      i3_desc:
+        type: text
+        max_chars: 186
+        font_pt: 12.0
+        sample: '[What the initiative does, for whom, with the **key phrase** in bold]'
+      i1_case:
+        type: text
+        max_chars: 204
+        font_pt: 12.0
+        sample: '**[Company]** [did what, with what result]'
+      i2_case:
+        type: text
+        max_chars: 155
+        font_pt: 12.0
+        sample: '**[Company]** [did what, with what result]'
+      i3_case:
+        type: text
+        max_chars: 155
+        font_pt: 12.0
+        sample: '**[Company]** [did what, with what result]'
+      i1_logo:
+        type: image
+        optional: true
+        label: case logo
+        aspect: 1.0
+      i2_logo:
+        type: image
+        optional: true
+        label: case logo
+        aspect: 1.778
+      i3_logo:
+        type: image
+        optional: true
+        label: case logo
+        aspect: 1.0
+      i1_stat1:
+        type: text
+        max_chars: 8
+        font_pt: 30.0
+        sample: 00+
+      i1_label1:
+        type: text
+        max_chars: 39
+        font_pt: 12.0
+        sample: '[What it counts]'
+      i1_stat2:
+        type: text
+        optional: true
+        max_chars: 8
+        font_pt: 30.0
+        sample: 00%
+      i1_label2:
+        type: text
+        optional: true
+        max_chars: 34
+        font_pt: 12.0
+        sample: '[What it counts]'
+      i2_stat1:
+        type: text
+        max_chars: 8
+        font_pt: 30.0
+        sample: 0.0%
+      i2_label1:
+        type: text
+        max_chars: 108
+        font_pt: 12.0
+        sample: '[What it counts]'
+      i3_stat1:
+        type: text
+        max_chars: 8
+        font_pt: 30.0
+        sample: $0B
+      i3_label1:
+        type: text
+        max_chars: 16
+        font_pt: 12.0
+        sample: '[What it counts]'
+      i3_stat2:
+        type: text
+        optional: true
+        max_chars: 8
+        font_pt: 30.0
+        sample: 00%
+      i3_label2:
+        type: text
+        optional: true
+        max_chars: 38
+        font_pt: 12.0
+        sample: '[What it counts]'
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: [Sources of the cases]'
+    repeat:
+    - prefix: i
+      count: 3
+      min: 2
+      axis: y
+      mode: none
+  initiative:
+    purpose: 'One initiative in detail: breakdown in 3 points, partners, 3 KPIs with a target, and an example image.'
+    when_to_use: Inside each pillar block, one per initiative.
+    source: Mexico 24H Case.pptx slide 18
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title: verb + initiative + result]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: '[Pillar]'
+      breakdown_head:
+        type: text
+        max_chars: 37
+        font_pt: 14.0
+        sample: Breakdown of “[Branded name]”
+      b1_text:
+        type: text
+        max_chars: 86
+        font_pt: 14.0
+        sample: '[Step or feature 1, with the **key phrase** in bold]'
+      b2_text:
+        type: text
+        max_chars: 100
+        font_pt: 14.0
+        sample: '[Step or feature 2, with the **key phrase** in bold]'
+      b3_text:
+        type: text
+        max_chars: 79
+        font_pt: 14.0
+        sample: '[Who it targets, with the **key phrase** in bold]'
+      partners_head:
+        type: text
+        optional: true
+        max_chars: 42
+        font_pt: 14.0
+        sample: Potential partners
+      partner1:
+        type: image
+        optional: true
+        label: partner logo
+        aspect: 2.443
+      partner2:
+        type: image
+        optional: true
+        label: partner logo
+        aspect: 1.0
+      partner3:
+        type: image
+        optional: true
+        label: partner logo
+        aspect: 1.0
+      partner4:
+        type: image
+        optional: true
+        label: partner logo
+        aspect: 1.914
+      kpis_head:
+        type: text
+        max_chars: 20
+        font_pt: 14.0
+        sample: KPIs
+      kpis:
+        type: text
+        max_chars: 368
+        font_pt: 14.0
+        sample:
+        - '## [KPI 1 name]'
+        - '[How it is measured] (target [number])'
+        - ''
+        - '## [KPI 2 name]'
+        - '[How it is measured] (target [number])'
+        - ''
+        - '## [KPI 3 name]'
+        - '[How it is measured] (target [number])'
+      example_head:
+        type: text
+        max_chars: 20
+        font_pt: 14.0
+        sample: Example
+      example_image:
+        type: image
+        label: example / mock-up
+        aspect: 0.667
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: Team Analysis'
+  initiative_steps:
+    purpose: An initiative as 3 steps (e.g. Discover, Prototype, Launch), with example images, a target-audience
+      number and 2 KPIs.
+    when_to_use: Inside a pillar block, when the initiative is a process.
+    source: Mexico 24H Case.pptx slide 17
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title: verb + initiative + result]'
+      subtitle:
+        type: text
+        max_chars: 131
+        font_pt: 16.0
+        sample: '[One line on the idea behind it]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: '[Pillar]'
+      breakdown_head:
+        type: text
+        max_chars: 34
+        font_pt: 14.0
+        sample: Breakdown of “[Branded name]”
+      s1_name:
+        type: text
+        max_chars: 44
+        font_pt: 12.0
+        sample:
+        - '[Step 1]'
+        - '[& verb]'
+      s2_name:
+        type: text
+        max_chars: 44
+        font_pt: 12.0
+        sample:
+        - '[Step 2]'
+        - '[& verb]'
+      s3_name:
+        type: text
+        max_chars: 44
+        font_pt: 12.0
+        sample:
+        - '[Step 3]'
+        - '[& verb]'
+      s1_text:
+        type: text
+        max_chars: 140
+        font_pt: 14.0
+        sample:
+        - '[Action]'
+        - '[Action]'
+        - '[Action]'
+      s2_text:
+        type: text
+        max_chars: 138
+        font_pt: 14.0
+        sample:
+        - '[Action]'
+        - '[Action]'
+        - '[Action]'
+      s3_text:
+        type: text
+        max_chars: 138
+        font_pt: 14.0
+        sample:
+        - '[Action]'
+        - '[Action]'
+      example_head:
+        type: text
+        max_chars: 35
+        font_pt: 14.0
+        sample: Example
+      ex1_image:
+        type: image
+        label: example 1
+        aspect: 0.903
+      ex2_image:
+        type: image
+        optional: true
+        label: example 2
+        aspect: 0.903
+      ex3_image:
+        type: image
+        optional: true
+        label: example 3
+        aspect: 0.903
+      target_head:
+        type: text
+        max_chars: 17
+        font_pt: 14.0
+        sample: Target Audience
+      target_stat:
+        type: text
+        max_chars: 8
+        font_pt: 36.0
+        sample: 00%
+      target_label:
+        type: text
+        max_chars: 100
+        font_pt: 11.0
+        sample:
+        - ''
+        - ''
+        - '[Who, and what the number says about them]'
+      kpis_head:
+        type: text
+        max_chars: 33
+        font_pt: 14.0
+        sample: KPIs
+      kpi1:
+        type: text
+        max_chars: 83
+        font_pt: 14.0
+        sample:
+        - '## [KPI 1 name]'
+        - '[How it is measured]'
+      kpi2:
+        type: text
+        max_chars: 83
+        font_pt: 14.0
+        sample:
+        - '## [KPI 2 name]'
+        - '[How it is measured]'
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: [Source]'
+  driver_tree:
+    purpose: Revenue driver tree (e.g. penetration x frequency x price) linked to each area's initiatives by number.
+    when_to_use: 'First Impact slide: how each initiative moves a revenue driver.'
+    source: Mexico 24H Case.pptx slide 33
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: To estimate financial impact, we link each strategy to the drivers of [client]'s revenue
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Impact
+      left_head:
+        type: text
+        max_chars: 47
+        font_pt: 14.0
+        sample: We identify which factors impact revenue…
+      right_head:
+        type: text
+        max_chars: 47
+        font_pt: 14.0
+        sample: …and directly link them to our strategies
+      root:
+        type: text
+        max_chars: 39
+        font_pt: 14.0
+        sample: '[Annual revenue]'
+      d1:
+        type: text
+        max_chars: 39
+        font_pt: 14.0
+        sample: '[Driver 1]'
+      d2:
+        type: text
+        max_chars: 39
+        font_pt: 14.0
+        sample: '[Driver 2]'
+      d3:
+        type: text
+        max_chars: 39
+        font_pt: 14.0
+        sample: '[Driver 3]'
+      op1:
+        type: text
+        max_chars: 8
+        font_pt: 16.0
+        sample: X
+      op2:
+        type: text
+        max_chars: 8
+        font_pt: 16.0
+        sample: X
+      a1:
+        type: text
+        max_chars: 44
+        font_pt: 12.0
+        sample: '[Area 1]'
+      a2:
+        type: text
+        max_chars: 44
+        font_pt: 12.0
+        sample: '[Area 2]'
+      a3:
+        type: text
+        max_chars: 44
+        font_pt: 12.0
+        sample: '[Area 3]'
+      a1_s1:
+        type: text
+        max_chars: 36
+        font_pt: 12.0
+        sample: '[Initiative]'
+      a1_s2:
+        type: text
+        optional: true
+        max_chars: 36
+        font_pt: 12.0
+        sample: '[Initiative]'
+      a1_s3:
+        type: text
+        optional: true
+        max_chars: 36
+        font_pt: 12.0
+        sample: '[Initiative]'
+      a2_s1:
+        type: text
+        max_chars: 36
+        font_pt: 12.0
+        sample: '[Initiative]'
+      a2_s2:
+        type: text
+        optional: true
+        max_chars: 36
+        font_pt: 12.0
+        sample: '[Initiative]'
+      a2_s3:
+        type: text
+        optional: true
+        max_chars: 36
+        font_pt: 12.0
+        sample: '[Initiative]'
+      a3_s1:
+        type: text
+        max_chars: 36
+        font_pt: 12.0
+        sample: '[Initiative]'
+      a3_s2:
+        type: text
+        optional: true
+        max_chars: 36
+        font_pt: 12.0
+        sample: '[Initiative]'
+      a3_s3:
+        type: text
+        optional: true
+        max_chars: 43
+        font_pt: 12.0
+        sample: '[Initiative]'
+      a1_s1_driver:
+        type: text
+        max_chars: 8
+        font_pt: 12.0
+        sample: '1'
+      a1_s2_driver:
+        type: text
+        optional: true
+        max_chars: 8
+        font_pt: 12.0
+        sample: '1'
+      a1_s3_driver:
+        type: text
+        optional: true
+        max_chars: 8
+        font_pt: 12.0
+        sample: '1'
+      a2_s1_driver:
+        type: text
+        max_chars: 8
+        font_pt: 12.0
+        sample: '1'
+      a2_s2_driver:
+        type: text
+        optional: true
+        max_chars: 8
+        font_pt: 12.0
+        sample: '1'
+      a2_s3_driver:
+        type: text
+        optional: true
+        max_chars: 8
+        font_pt: 12.0
+        sample: '1'
+      a3_s1_driver:
+        type: text
+        max_chars: 8
+        font_pt: 12.0
+        sample: '1'
+      a3_s2_driver:
+        type: text
+        optional: true
+        max_chars: 8
+        font_pt: 12.0
+        sample: '1'
+      a3_s3_driver:
+        type: text
+        optional: true
+        max_chars: 8
+        font_pt: 12.0
+        sample: '1'
+      footnote:
+        type: text
+        optional: true
+        max_chars: 229
+        font_pt: 9.0
+        sample: 'Footnote: [What is included in each driver]'
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: Team Analysis'
+    repeat:
+    - prefix: a
+      count: 3
+      min: 2
+      axis: y
+      mode: none
+  financials:
+    purpose: 'Financial impact: headline KPI pills (revenue, ROI, payback), key assumptions, driver increases and
+      costs, and a base vs strategy chart.'
+    when_to_use: Impact section, right after the driver tree.
+    source: Mexico 24H Case.pptx slide 35
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title: the strategy''s financial return and why]'
+      subtitle:
+        type: text
+        max_chars: 95
+        font_pt: 18.0
+        sample: '[We forecast [client] reaching [number] in revenue by [year]]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Impact
+      kpi1_value:
+        type: text
+        max_chars: 16
+        font_pt: 14.0
+        sample: USD 00m
+      kpi1_label:
+        type: text
+        max_chars: 20
+        font_pt: 14.0
+        sample: Revenue creation
+      kpi2_value:
+        type: text
+        max_chars: 9
+        font_pt: 14.0
+        sample: 0.0x
+      kpi2_label:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: ROI
+      kpi3_value:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: 0y
+      kpi3_label:
+        type: text
+        max_chars: 10
+        font_pt: 14.0
+        sample: Payback
+      as1_value:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: 00%
+      as1_label:
+        type: text
+        max_chars: 39
+        font_pt: 12.0
+        sample: '[Assumption 1]'
+      as2_value:
+        type: text
+        optional: true
+        max_chars: 8
+        font_pt: 14.0
+        sample: 00%
+      as2_label:
+        type: text
+        optional: true
+        max_chars: 35
+        font_pt: 12.0
+        sample: '[Assumption 2]'
+      d1_name:
+        type: text
+        max_chars: 12
+        font_pt: 14.0
+        sample: '[Driver 1]'
+      d2_name:
+        type: text
+        max_chars: 10
+        font_pt: 14.0
+        sample: '[Driver 2]'
+      d3_name:
+        type: text
+        max_chars: 14
+        font_pt: 14.0
+        sample: '[Driver 3]'
+      inc_head:
+        type: text
+        max_chars: 14
+        font_pt: 14.0
+        sample: Increase (6y)
+      cost_head:
+        type: text
+        max_chars: 16
+        font_pt: 14.0
+        sample: Cost (USD, 6y)
+      d1_inc:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: 0%
+      d2_inc:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: 0%
+      d3_inc:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: 0%
+      d1_cost:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: ~0m
+      d2_cost:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: ~0m
+      d3_cost:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: ~0m
+      total_inc:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: ~0%
+      total_cost:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: ~0m
+      chart_head:
+        type: text
+        max_chars: 156
+        font_pt: 14.0
+        sample: '[What the chart shows, with the main driver]'
+      chart:
+        type: chart
+        sample:
+          categories:
+          - '2024'
+          - 2025E
+          - 2026E
+          - 2027E
+          - 2028E
+          - 2029E
+          - 2030E
+          series:
+            Base growth:
+            - 300
+            - 320
+            - 340
+            - 360
+            - 380
+            - 400
+            - 420
+            Penetration:
+            - 0
+            - 10
+            - 20
+            - 30
+            - 40
+            - 50
+            - 60
+            Frequency:
+            - 0
+            - 8
+            - 16
+            - 24
+            - 32
+            - 40
+            - 48
+            Avg. price:
+            - 0
+            - 4
+            - 8
+            - 12
+            - 16
+            - 20
+            - 24
+        chart_type: COLUMN_STACKED
+      contrib1:
+        type: text
+        max_chars: 8
+        font_pt: 12.0
+        sample: 0%
+      contrib2:
+        type: text
+        max_chars: 8
+        font_pt: 12.0
+        sample: 0%
+      contrib3:
+        type: text
+        max_chars: 8
+        font_pt: 12.0
+        sample: 0%
+      contrib4:
+        type: text
+        max_chars: 8
+        font_pt: 12.0
+        sample: 0%
+      contrib5:
+        type: text
+        max_chars: 8
+        font_pt: 12.0
+        sample: 0%
+      contrib6:
+        type: text
+        max_chars: 8
+        font_pt: 12.0
+        sample: 0%
+      growth_label:
+        type: text
+        max_chars: 8
+        font_pt: 16.0
+        sample: ~0%
+      footnote:
+        type: text
+        optional: true
+        max_chars: 192
+        font_pt: 9.0
+        sample: 'Footnote: ROI = total revenue from strategies / total cost'
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: Team Analysis'
+  chart_takeaways:
+    purpose: A native column chart with a description on top and key takeaways on the right.
+    when_to_use: Analysis or appendix, any time a number series makes the point.
+    source: PowerPoint Template.pptx slide 11
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title: what the chart proves]'
+      subtitle:
+        type: text
+        optional: true
+        max_chars: 122
+        font_pt: 14.0
+        sample: '[Subtitle]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Analysis
+      chart_head:
+        type: text
+        max_chars: 72
+        font_pt: 14.0
+        sample: '[What the chart shows]'
+      unit:
+        type: text
+        max_chars: 21
+        font_pt: 12.0
+        sample: '[Data], [Unit]'
+      chart:
+        type: chart
+        sample:
+          categories:
+          - '[A]'
+          - '[B]'
+          - '[C]'
+          - '[D]'
+          - '[E]'
+          series:
+            '[Series]':
+            - 50
+            - 40
+            - 30
+            - 20
+            - 10
+        chart_type: COLUMN_CLUSTERED
+      takeaways_head:
+        type: text
+        max_chars: 35
+        font_pt: 14.0
+        sample: Key takeaways
+      takeaways:
+        type: text
+        max_chars: 378
+        font_pt: 12.0
+        sample:
+        - '[Takeaway 1]'
+        - ''
+        - '[Takeaway 2]'
+        - ''
+        - '[Takeaway 3]'
+      footnote:
+        type: text
+        optional: true
+        max_chars: 161
+        font_pt: 9.0
+        sample: 'Footnote: [Note]'
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: [Source]'
+  harvey_table:
+    purpose: 'Comparison table with Harvey balls (0-4): options or competitors against 5 criteria, plus a takeaway
+      bar.'
+    when_to_use: Analysis (competitors) or Strategy (option evaluation); also good in the appendix.
+    source: PowerPoint Template.pptx slide 72
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title: who wins on what]'
+      subtitle:
+        type: text
+        optional: true
+        max_chars: 122
+        font_pt: 14.0
+        sample: '[Subtitle]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Analysis
+      table:
+        type: table
+        rows: 6
+        cols: 6
+        sample:
+        - - ' '
+          - '[Criterion 1]'
+          - '[Criterion 2]'
+          - '[Criterion 3]'
+          - '[Criterion 4]'
+          - '[Criterion 5]'
+        - - '[Option 1]'
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        - - '[Option 2]'
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        - - '[Option 3]'
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        - - '[Option 4]'
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        - - '[Option 5]'
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        note: 'First row: criteria; first column: options. Harvey levels go in h_r<row>_c<col> (0-4).'
+      takeaway:
+        type: text
+        max_chars: 222
+        font_pt: 14.0
+        sample: '[Main takeaway]'
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: [Source]'
+      h_r1_c1:
+        type: harvey
+        optional: true
+      h_r1_c2:
+        type: harvey
+        optional: true
+      h_r1_c3:
+        type: harvey
+        optional: true
+      h_r1_c4:
+        type: harvey
+        optional: true
+      h_r1_c5:
+        type: harvey
+        optional: true
+      h_r2_c1:
+        type: harvey
+        optional: true
+      h_r2_c2:
+        type: harvey
+        optional: true
+      h_r2_c3:
+        type: harvey
+        optional: true
+      h_r2_c4:
+        type: harvey
+        optional: true
+      h_r2_c5:
+        type: harvey
+        optional: true
+      h_r3_c1:
+        type: harvey
+        optional: true
+      h_r3_c2:
+        type: harvey
+        optional: true
+      h_r3_c3:
+        type: harvey
+        optional: true
+      h_r3_c4:
+        type: harvey
+        optional: true
+      h_r3_c5:
+        type: harvey
+        optional: true
+      h_r4_c1:
+        type: harvey
+        optional: true
+      h_r4_c2:
+        type: harvey
+        optional: true
+      h_r4_c3:
+        type: harvey
+        optional: true
+      h_r4_c4:
+        type: harvey
+        optional: true
+      h_r4_c5:
+        type: harvey
+        optional: true
+      h_r5_c1:
+        type: harvey
+        optional: true
+      h_r5_c2:
+        type: harvey
+        optional: true
+      h_r5_c3:
+        type: harvey
+        optional: true
+      h_r5_c4:
+        type: harvey
+        optional: true
+      h_r5_c5:
+        type: harvey
+        optional: true
+  risk_matrix:
+    purpose: 'Risk matrix: risks A-G placed by probability and impact, coloured by pillar, with a table of descriptions
+      and top-risk stars.'
+    when_to_use: Impact section, before mitigation.
+    source: Mexico 24H Case.pptx slide 36
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title: the main risks to address]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Impact
+      legend1:
+        type: text
+        max_chars: 10
+        font_pt: 10.0
+        sample: '[Pillar 1]'
+      legend2:
+        type: text
+        max_chars: 10
+        font_pt: 10.0
+        sample: '[Pillar 2]'
+      legend3:
+        type: text
+        optional: true
+        max_chars: 10
+        font_pt: 10.0
+        sample: '[Pillar 3]'
+      r1_name:
+        type: text
+        max_chars: 34
+        font_pt: 12.0
+        sample: '[Risk A]'
+      r2_name:
+        type: text
+        max_chars: 34
+        font_pt: 12.0
+        sample: '[Risk B]'
+      r3_name:
+        type: text
+        max_chars: 34
+        font_pt: 12.0
+        sample: '[Risk C]'
+      r4_name:
+        type: text
+        optional: true
+        max_chars: 34
+        font_pt: 12.0
+        sample: '[Risk D]'
+      r5_name:
+        type: text
+        optional: true
+        max_chars: 34
+        font_pt: 12.0
+        sample: '[Risk E]'
+      r6_name:
+        type: text
+        optional: true
+        max_chars: 34
+        font_pt: 12.0
+        sample: '[Risk F]'
+      r7_name:
+        type: text
+        optional: true
+        max_chars: 34
+        font_pt: 12.0
+        sample: '[Risk G]'
+      r1_desc:
+        type: text
+        max_chars: 156
+        font_pt: 12.0
+        sample: '[What could go wrong and why it matters]'
+      r2_desc:
+        type: text
+        max_chars: 146
+        font_pt: 12.0
+        sample: '[What could go wrong and why it matters]'
+      r3_desc:
+        type: text
+        max_chars: 148
+        font_pt: 12.0
+        sample: '[What could go wrong and why it matters]'
+      r4_desc:
+        type: text
+        optional: true
+        max_chars: 148
+        font_pt: 12.0
+        sample: '[What could go wrong and why it matters]'
+      r5_desc:
+        type: text
+        optional: true
+        max_chars: 119
+        font_pt: 12.0
+        sample: '[What could go wrong and why it matters]'
+      r6_desc:
+        type: text
+        optional: true
+        max_chars: 138
+        font_pt: 12.0
+        sample: '[What could go wrong and why it matters]'
+      r7_desc:
+        type: text
+        optional: true
+        max_chars: 139
+        font_pt: 12.0
+        sample: '[What could go wrong and why it matters]'
+      r1_letter:
+        type: marker
+      r2_letter:
+        type: marker
+      r3_letter:
+        type: marker
+      r4_letter:
+        type: marker
+        optional: true
+      r5_letter:
+        type: marker
+        optional: true
+      r6_letter:
+        type: marker
+        optional: true
+      r7_letter:
+        type: marker
+        optional: true
+      r1_dot:
+        type: marker
+      r2_dot:
+        type: marker
+      r3_dot:
+        type: marker
+      r4_dot:
+        type: marker
+        optional: true
+      r5_dot:
+        type: marker
+        optional: true
+      r6_dot:
+        type: marker
+        optional: true
+      r7_dot:
+        type: marker
+        optional: true
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: Team Analysis'
+      r1_star:
+        type: marker
+        optional: true
+      r2_star:
+        type: marker
+        optional: true
+      r3_star:
+        type: marker
+        optional: true
+      r4_star:
+        type: marker
+        optional: true
+      r5_star:
+        type: marker
+        optional: true
+      r6_star:
+        type: marker
+        optional: true
+      r7_star:
+        type: marker
+        optional: true
+  mitigation:
+    purpose: 'Risk mitigation: for each top risk, the mitigation and the actionable steps.'
+    when_to_use: Right after the risk matrix.
+    source: Mexico 24H Case.pptx slide 37
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title: how we reduce the main risks]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Impact
+      steps_head:
+        type: text
+        max_chars: 18
+        font_pt: 16.0
+        sample: Action steps
+      m1_letter:
+        type: text
+        max_chars: 8
+        font_pt: 10.0
+        sample: A
+      m2_letter:
+        type: text
+        max_chars: 8
+        font_pt: 10.0
+        sample: B
+      m3_letter:
+        type: text
+        max_chars: 8
+        font_pt: 10.0
+        sample: C
+      m1_name:
+        type: text
+        max_chars: 19
+        font_pt: 16.0
+        sample: '[Risk]'
+      m2_name:
+        type: text
+        max_chars: 27
+        font_pt: 16.0
+        sample: '[Risk]'
+      m3_name:
+        type: text
+        max_chars: 19
+        font_pt: 16.0
+        sample: '[Risk]'
+      m1_mitigation:
+        type: text
+        max_chars: 170
+        font_pt: 14.0
+        sample: '[Mitigation, with the **key phrase** in bold]'
+      m2_mitigation:
+        type: text
+        max_chars: 158
+        font_pt: 14.0
+        sample: '[Mitigation, with the **key phrase** in bold]'
+      m3_mitigation:
+        type: text
+        max_chars: 155
+        font_pt: 14.0
+        sample: '[Mitigation, with the **key phrase** in bold]'
+      m1_steps:
+        type: text
+        max_chars: 335
+        font_pt: 14.0
+        sample:
+        - '[Step]'
+        - '[Step]'
+        - '[Step]'
+      m2_steps:
+        type: text
+        max_chars: 335
+        font_pt: 14.0
+        sample:
+        - '[Step]'
+        - '[Step]'
+        - '[Step]'
+      m3_steps:
+        type: text
+        max_chars: 335
+        font_pt: 14.0
+        sample:
+        - '[Step]'
+        - '[Step]'
+        - '[Step]'
+      footnote:
+        type: text
+        optional: true
+        max_chars: 161
+        font_pt: 9.0
+        sample: 'Footnote: Illustrative; not exhaustive'
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: Team Analysis'
+    repeat:
+    - prefix: m
+      count: 3
+      min: 2
+      axis: y
+      mode: none
+  roadmap:
+    purpose: 'Implementation roadmap: 3-5 phases as chevrons with timing, what happens in each, and a rising phase
+      line.'
+    when_to_use: Impact section, last content slide before the recap.
+    source: Mexico 24H Case.pptx slide 38
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title: pilot first, then scale]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Impact
+      ph1_name:
+        type: text
+        max_chars: 66
+        font_pt: 14.0
+        sample: '[Phase 1 name]'
+      ph2_name:
+        type: text
+        max_chars: 66
+        font_pt: 14.0
+        sample: '[Phase 2 name]'
+      ph3_name:
+        type: text
+        max_chars: 66
+        font_pt: 14.0
+        sample: '[Phase 3 name]'
+      ph4_name:
+        type: text
+        max_chars: 66
+        font_pt: 14.0
+        sample: '[Phase 4 name]'
+      ph5_name:
+        type: text
+        max_chars: 66
+        font_pt: 14.0
+        sample: '[Phase 5 name]'
+      ph1_time:
+        type: text
+        max_chars: 11
+        font_pt: 14.0
+        sample: Months 0-0
+      ph2_time:
+        type: text
+        max_chars: 11
+        font_pt: 14.0
+        sample: Months 0-0
+      ph3_time:
+        type: text
+        max_chars: 12
+        font_pt: 14.0
+        sample: Months 0-0
+      ph4_time:
+        type: text
+        max_chars: 13
+        font_pt: 14.0
+        sample: Months 0-0
+      ph5_time:
+        type: text
+        max_chars: 13
+        font_pt: 14.0
+        sample: Months 0-0
+      ph1_text:
+        type: text
+        max_chars: 408
+        font_pt: 12.0
+        sample:
+        - '[What happens: pilots, cities, numbers]'
+        - ''
+        - '[Milestone]'
+      ph2_text:
+        type: text
+        max_chars: 384
+        font_pt: 12.0
+        sample:
+        - '[What happens: pilots, cities, numbers]'
+        - ''
+        - '[Milestone]'
+      ph3_text:
+        type: text
+        max_chars: 336
+        font_pt: 12.0
+        sample:
+        - '[What happens: pilots, cities, numbers]'
+        - ''
+        - '[Milestone]'
+      ph4_text:
+        type: text
+        max_chars: 312
+        font_pt: 12.0
+        sample:
+        - '[What happens: pilots, cities, numbers]'
+        - ''
+        - '[Milestone]'
+      ph5_text:
+        type: text
+        max_chars: 255
+        font_pt: 12.0
+        sample:
+        - '[What happens: pilots, cities, numbers]'
+        - ''
+        - '[Milestone]'
+      ph1_label:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: Phase 1
+      ph2_label:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: Phase 2
+      ph3_label:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: Phase 3
+      ph4_label:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: Phase 4
+      ph5_label:
+        type: text
+        max_chars: 8
+        font_pt: 14.0
+        sample: Phase 5
+      footnote:
+        type: text
+        optional: true
+        max_chars: 161
+        font_pt: 9.0
+        sample: 'Footnote: Illustrative; not exhaustive'
+      source:
+        type: text
+        max_chars: 124
+        font_pt: 9.0
+        sample: 'Source: Team Analysis'
+    repeat:
+    - prefix: ph
+      count: 5
+      min: 3
+      axis: x
+      mode: resize
+  appendix_divider:
+    purpose: Dark divider that opens the appendix.
+    when_to_use: After the closing slide, first slide of the appendix.
+    source: Mexico 24H Case.pptx slide 42
+    layout: Custom Layout
+    slots:
+      section:
+        type: text
+        max_chars: 36
+        font_pt: 36.0
+        sample: Appendix
+      client_logo:
+        type: image
+        optional: true
+        label: client logo
+        aspect: 1.643
+  appendix_index:
+    purpose: Appendix index. navigate.py fills it with Slide Zooms to every backup slide; without navigation it
+      lists them.
+    when_to_use: Second appendix slide.
+    source: Mexico 24H Case.pptx slide 43
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: Appendix. Index
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: Appendix
+      index_list:
+        type: text
+        optional: true
+        max_chars: 1926
+        font_pt: 16.0
+        sample:
+        - '[Backup slide 1]'
+        - '[Backup slide 2]'
+  text_content:
+    purpose: 'Plain content slide: action title, optional subtitle, bullets. Use when no other pattern fits.'
+    when_to_use: Anywhere; appendix text slides.
+    source: Mexico 24H Case.pptx slide 43
+    layout: Default
+    slots:
+      title:
+        type: text
+        max_chars: 150
+        font_pt: 25.0
+        sample: '[Action title]'
+      tracker:
+        type: text
+        max_chars: 43
+        font_pt: 14.0
+        sample: '[Section]'
+      body:
+        type: text
+        max_chars: 1926
+        font_pt: 16.0
+        sample:
+        - '[Point 1]'
+        - '[Point 2]'
+        - '[Point 3]'
+      source:
+        type: text
+        sample: 'Source: [Source]'
+        max_chars: 140
+        font_pt: 9.0
+  closing:
+    purpose: 'Closing slide: hero photo, team photos and names, client logo.'
+    when_to_use: Last slide before the appendix.
+    source: Mexico 24H Case.pptx slide 41
+    layout: Blank
+    slots:
+      hero_image:
+        type: image
+        label: closing photo
+        aspect: 2.61
+      client_logo:
+        type: image
+        optional: true
+        label: client logo
+        aspect: 1.5
+      m1_photo:
+        type: photo
+        optional: true
+      m2_photo:
+        type: photo
+        optional: true
+      m3_photo:
+        type: photo
+        optional: true
+      m4_photo:
+        type: photo
+        optional: true
+      m1_name:
+        type: text
+        max_chars: 15
+        font_pt: 16.0
+        sample: '[Name 1]'
+      m2_name:
+        type: text
+        max_chars: 15
+        font_pt: 16.0
+        sample: '[Name 2]'
+      m3_name:
+        type: text
+        max_chars: 17
+        font_pt: 16.0
+        sample: '[Name 3]'
+      m4_name:
+        type: text
+        max_chars: 16
+        font_pt: 16.0
+        sample: '[Name 4]'
+    repeat:
+    - prefix: m
+      count: 4
+      min: 2
+      axis: x
+      mode: move
+house_colors:
+- '000000'
+- 001965
+- '002060'
+- 00B050
+- 051C2C
+- 051D30
+- 061E31
+- 061F32
+- '062032'
+- 0B3B1D
+- '171616'
+- 22A3DF
+- 3478AB
+- 3C3C3C
+- '590305'
+- 9C7324
+- B3B3B3
+- D6EBFA
+- D9D9D9
+- E6E6E6
+- E7E6E6
+- F2F2F2
+- FF0000
+- FFC000
+- FFFFFF
+house_fonts:
+- Arial
+- 'Arial '
+- Graphik Light

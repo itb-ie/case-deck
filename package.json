@@ -1,0 +1,9 @@
+{
+  "name": "case-deck-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local copy of the avoid-ai-writing detector used by scripts/ai_check.py (https://github.com/conorbronsdon/avoid-ai-writing, MIT).",
+  "dependencies": {
+    "avoid-ai-writing-detector": "3.36.0"
+  }
+}
