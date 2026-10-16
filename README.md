@@ -13,9 +13,78 @@ The scripts do the layout. The team owns the storyline, every number and the fin
 
 > **Before a competition:** check its rules on AI. Some ban it (Queen's ICBC) or ban all electronics (Champions Trophy); others say nothing (CBS, BBU-ICC). If the rules are silent, ask the organisers in writing, and disclose AI use where it is required.
 
-## Install (once per laptop)
+## Before you start: uv, Node.js and git
 
-You need Claude Code, [uv](https://docs.astral.sh/uv/) and Node.js 18+. Nothing is installed globally: Python packages go into `.venv/` and the AI-pattern detector into `node_modules/`, both inside the skill folder.
+The skill needs three tools besides Claude Code:
+
+| Tool | What it does here |
+|---|---|
+| **uv** | Runs the Python scripts in their own environment inside the skill folder. It also downloads the right Python version itself, so you do not need to install Python separately. |
+| **Node.js 18+** | Runs the AI-pattern detector. |
+| **git** | Downloads the skill and its updates. |
+
+First check what you already have. Open a terminal (macOS: Terminal; Windows: PowerShell; Linux: your terminal) and type:
+
+```bash
+uv --version
+node --version
+git --version
+```
+
+Each line that prints a version number is done. Install the rest as below.
+
+### Install uv
+
+Official guide: <https://docs.astral.sh/uv/getting-started/installation/>.
+
+**macOS**, either:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh     # official installer
+brew install uv                                     # if you use Homebrew
+```
+
+**Windows** (PowerShell), either:
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"   # official installer
+winget install --id=astral-sh.uv -e                                                   # Windows Package Manager
+scoop install main/uv                                                                 # if you use Scoop
+```
+
+**Linux**, either:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh     # official installer
+wget -qO- https://astral.sh/uv/install.sh | sh      # if curl is missing
+```
+
+**Any platform, if you already have Python and pipx:** `pipx install uv`.
+
+Then **close the terminal and open a new one** (the installer adds uv to your PATH, which only new terminals see) and check with `uv --version`.
+
+### Install Node.js and git
+
+| | Node.js 18+ | git |
+|---|---|---|
+| macOS | `brew install node`, or the installer from <https://nodejs.org> (LTS) | `xcode-select --install` (or `brew install git`) |
+| Windows | `winget install OpenJS.NodeJS.LTS`, or the installer from <https://nodejs.org> | `winget install Git.Git`, or <https://git-scm.com/download/win> |
+| Linux | `sudo apt install nodejs npm` (Debian/Ubuntu; check the version is 18+), or <https://nodejs.org> | `sudo apt install git` (or your distribution's package manager) |
+
+Open a new terminal afterwards and run the three version checks again.
+
+### If something goes wrong
+
+- **`uv: command not found` (macOS/Linux):** open a new terminal. If that does not help, run `source $HOME/.local/bin/env` once, or add `$HOME/.local/bin` to your PATH.
+- **`uv is not recognized` (Windows):** close and reopen PowerShell. The installer puts uv in `%USERPROFILE%\.local\bin`.
+- **Windows blocks the installer script:** use the `winget` line instead, or keep `-ExecutionPolicy ByPass` exactly as written.
+- **University or company network blocks the download:** use `brew`, `winget` or `pipx`, or ask IT; uv also respects the `HTTPS_PROXY` setting.
+
+## Install the skill (once per laptop)
+
+Nothing is installed globally: Python packages go into `.venv/` and the AI-pattern detector into `node_modules/`, both inside the skill folder.
+
+**macOS / Linux:**
 
 ```bash
 # put the skill where Claude Code finds it: in your project...
@@ -29,15 +98,29 @@ npm install                      # local copy of the AI-pattern detector, works 
 uv run scripts/selftest.py       # should end with "All good"
 ```
 
-No uv? `curl -LsSf https://astral.sh/uv/install.sh | sh` (macOS/Linux) or `powershell -c "irm https://astral.sh/uv/install.ps1 | iex"` (Windows). Without uv, a plain virtual environment works too:
+**Windows (PowerShell):**
 
-```bash
-python3 -m venv .venv && .venv/bin/pip install "python-pptx==1.0.2" lxml Pillow PyYAML pypdf
+```powershell
+git clone <repo url> "$env:USERPROFILE\.claude\skills\case-deck"   # or <your project>\.claude\skills\case-deck
+cd "$env:USERPROFILE\.claude\skills\case-deck"
+uv sync
+npm install
+uv run scripts/selftest.py
 ```
 
-To remove the skill completely, delete the folder.
+The first `uv sync` may download a Python version; that takes a minute once and is stored by uv, not in your system.
 
-Update during the semester with `git pull` in the same folder, then `uv sync`.
+**Without uv** (not recommended), a plain virtual environment also works:
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install "python-pptx==1.0.2" lxml Pillow PyYAML pypdf            # macOS / Linux
+.venv\Scripts\pip install "python-pptx==1.0.2" lxml Pillow PyYAML pypdf        # Windows
+```
+
+**Update** during the semester: `git pull` in the skill folder, then `uv sync`.
+
+**Remove** the skill completely: delete the folder. Nothing else was installed for it (uv and Node.js stay, for other projects).
 
 ## Use it
 

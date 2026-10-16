@@ -13,7 +13,7 @@ Turns a team's thinking into slides in the house style of the 2025 winning decks
 
 Say, in one or two lines:
 - check your competition's rules on AI before using this during the case: some ban it (Queen's ICBC) or ban all electronics (Champions Trophy), others say nothing (CBS, BBU-ICC). When rules are silent, ask the organisers in writing, and disclose AI use where required.
-- If `uv run --project "$SKILL" python "$SKILL/scripts/selftest.py"` has not been run on this laptop yet, run it now.
+- If the self-test has not been run on this laptop yet, run it now: `uv run --project "$SKILL" python "$SKILL/scripts/selftest.py"`. If `uv` or `node` is missing, do not install anything into the system Python: send the team to the "Before you start" section of `$SKILL/README.md`, which has the install commands for macOS, Windows and Linux.
 
 ## Pick the mode from the request
 
