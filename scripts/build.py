@@ -436,7 +436,7 @@ def fill_appendix_index(prs):
         dk.set_text(box, titles)
 
 
-def build(spec_path, out=None, allow_samples=False, catalog=None, quiet=False):
+def build(spec_path, out=None, allow_samples=False, catalog=None, quiet=False, nav=True, nav_engine="auto"):
     t0 = time.time()
     spec_path = Path(spec_path)
     base_dir = spec_path.parent
@@ -490,6 +490,12 @@ def build(spec_path, out=None, allow_samples=False, catalog=None, quiet=False):
     if lock.exists():
         print(f"warning: {lock.name} exists; close {out.name} in PowerPoint first.", file=sys.stderr)
     prs.save(str(out))
+    report["build_seconds"] = round(time.time() - t0, 2)
+    if nav and any(slide_meta(s).get("pattern") == "appendix_index" for s in prs.slides):
+        import navigate
+        engine = nav_engine if nav_engine != "auto" else "quicklook"
+        report["navigation"] = navigate.navigate(out, out, engine)
+        report["slides"] = len(dk.open_deck(out).slides)
     report["seconds"] = round(time.time() - t0, 2)
     report["output"] = str(out)
     if not quiet:
@@ -499,6 +505,12 @@ def build(spec_path, out=None, allow_samples=False, catalog=None, quiet=False):
 
 def print_report(r):
     print(f"Built {r['output']}: {r['slides']} slides in {r['seconds']}s")
+    n = r.get("navigation")
+    if n:
+        print(f"Navigation: {n['zooms']} zooms, {n['corner_links']} 'Appendix ›' links, "
+              f"{n['sections']} sections, hidden navigator {'added' if n['navigator'] else 'not needed'}")
+    elif "navigation" not in r:
+        print("No navigation (no appendix_index slide, or --no-nav).")
     if r["unfilled"]:
         print("\nBoxes still showing sample text:")
         for u in r["unfilled"]:
@@ -523,6 +535,9 @@ def main():
     ap.add_argument("-o", "--out")
     ap.add_argument("--check", action="store_true", help="validate only")
     ap.add_argument("--allow-samples", action="store_true", help="unfilled required boxes keep sample text")
+    ap.add_argument("--no-nav", action="store_true", help="skip the appendix zooms and links")
+    ap.add_argument("--engine", default="auto", choices=["auto", "quicklook", "powerpoint"],
+                    help="renderer for the zoom thumbnails")
     args = ap.parse_args()
     try:
         if args.check:
@@ -534,7 +549,7 @@ def main():
                 print("error:", e)
             print("OK" if not errors else f"{len(errors)} error(s)")
             sys.exit(1 if errors else 0)
-        build(args.spec, args.out, args.allow_samples)
+        build(args.spec, args.out, args.allow_samples, nav=not args.no_nav, nav_engine=args.engine)
     except SpecError as e:
         print("The spec has problems; nothing was built:\n" + str(e), file=sys.stderr)
         sys.exit(2)

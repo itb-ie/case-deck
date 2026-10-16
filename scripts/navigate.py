@@ -102,13 +102,37 @@ def _nav_elements(slide):
     return found
 
 
-def clear_navigation(prs):
+def _index_part(prs):
+    for s in prs.slides:
+        if slide_meta(s).get("pattern") == "appendix_index" and not slide_meta(s).get("nav_generated"):
+            return s.part
+    return None
+
+
+def _links_to(slide, el, part):
+    for h in el.iter(f"{{{A}}}hlinkClick"):
+        rel = slide.part.rels.get(h.get(f"{{{dk.R_NS}}}id") or "")
+        if rel is not None and not rel.is_external and rel.target_part is part:
+            return True
+    return False
+
+
+def clear_navigation(prs, keep_corner_links=True):
+    """Remove earlier navigation. Corner links that still point at the
+    appendix index stay as they are, so main slides are not touched."""
+    index_part = _index_part(prs)
     for s in list(prs.slides):
         meta = slide_meta(s)
         if meta.get("nav_generated"):
             dk.drop_slide(prs, s)
             continue
-        removed = _nav_elements(s)
+        removed = []
+        for el in _nav_elements(s):
+            name = next(el.iter(f"{{{P}}}cNvPr")).get("name", "")
+            if keep_corner_links and name == "nav:appendix_link" and index_part is not None \
+                    and _links_to(s, el, index_part):
+                continue
+            removed.append(el)
         for el in removed:
             el.getparent().remove(el)
         if removed:
@@ -443,6 +467,9 @@ def navigate(deck_path, out_path=None, engine="quicklook", corner_links=True, na
                 if r["role"] not in ("main", "main_takeaway", "title"):
                     continue
                 s = r["slide"]
+                if any(e.get("name") == "nav:appendix_link" for e in s.shapes._spTree.iter(f"{{{P}}}cNvPr")):
+                    report["corner_links"] += 1
+                    continue  # already linked to this index
                 dark = s.slide_layout.name in ("Blank", "Blank dark", "Frontpage dark", "Custom Layout")
                 lab = add_label(s, "Appendix ›", Inches(10.55), Inches(7.16), Inches(1.4), Inches(0.24),
                                 "nav:appendix_link", size=9, color="FFFFFF" if dark else "7F7F7F", align="r")

@@ -69,14 +69,42 @@ def slide_index(prs, slide) -> int:
     raise ValueError("slide not in deck")
 
 
-def drop_slide(prs, slide):
+def drop_slide(prs, slide, unlink=True):
+    """Remove a slide. With unlink, links and Slide Zooms on other slides that
+    point at it are removed too; otherwise the slide part stays reachable and
+    clashes with renumbered slides when the file is saved."""
     lst = sld_id_list(prs)
+    slide_id, part = slide.slide_id, slide.part
     for sid in list(lst):
-        if int(sid.get("id")) == slide.slide_id:
+        if int(sid.get("id")) == slide_id:
             prs.part.drop_rel(sid.rId)
             lst.remove(sid)
-            return
-    raise ValueError("slide not found")
+            break
+    else:
+        raise ValueError("slide not found")
+    if unlink:
+        unlink_slide(prs, part, slide_id)
+
+
+def unlink_slide(prs, part, slide_id=None):
+    mc = NS["mc"]
+    for other in prs.slides:
+        rids = [rId for rId, rel in other.part.rels.items()
+                if not rel.is_external and rel.target_part is part]
+        root = other._element
+        if slide_id is not None:
+            for zm in list(root.iter("{%s}sldZmObj" % NS["pslz"])):
+                if zm.get("sldId") == str(slide_id):
+                    ac = zm
+                    while ac is not None and ac.tag != f"{{{mc}}}AlternateContent":
+                        ac = ac.getparent()
+                    if ac is not None and ac.getparent() is not None:
+                        ac.getparent().remove(ac)
+        for rId in rids:
+            for el in list(root.iter()):
+                if el.get(f"{{{R_NS}}}id") == rId and str(el.tag).endswith(("hlinkClick", "hlinkHover")):
+                    el.getparent().remove(el)
+            other.part.drop_rel(rId)
 
 
 def keep_only(prs, keep_positions):

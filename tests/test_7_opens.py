@@ -8,7 +8,7 @@ import pytest
 import deckkit as dk
 from conftest import OUT
 
-OUTPUTS = ["tajin_rebuild.pptx", "tajin_nav.pptx", "seeded.pptx", "ai_default_fixed.pptx", "IE_edited.pptx"]
+OUTPUTS = ["tajin_rebuild.pptx", "alma_deck.pptx", "seeded.pptx", "ai_default_fixed.pptx", "IE_edited.pptx"]
 
 
 @pytest.mark.parametrize("name", OUTPUTS)
@@ -19,7 +19,7 @@ def test_reloads(name):
     assert not dk.verify_package(p)
 
 
-@pytest.mark.parametrize("name", ["tajin_nav.pptx", "IE_edited.pptx"])
+@pytest.mark.parametrize("name", ["tajin_rebuild.pptx", "IE_edited.pptx"])
 def test_powerpoint_opens(name, tmp_path):
     p = OUT / name
     if platform.system() != "Darwin" or not Path("/Applications/Microsoft PowerPoint.app").exists():

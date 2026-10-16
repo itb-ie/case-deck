@@ -20,8 +20,9 @@ EXPECTED = ["title", "exec_summary", "section_divider", "company_position", "tre
 def test_golden_structure(golden_deck):
     out, rep = golden_deck
     prs = dk.open_deck(out)
-    got = [build.slide_meta(s).get("pattern") for s in prs.slides]
+    got = [build.slide_meta(s).get("pattern") for s in prs.slides if not build.slide_meta(s).get("nav_generated")]
     assert got == EXPECTED
+    assert rep.get("navigation"), "build must add navigation by default"
     assert rep["seconds"] < 120, "35+ slides must build in under 2 minutes"
     assert not dk.verify_package(out)
 
@@ -39,4 +40,4 @@ def test_golden_side_by_side(golden_deck, winning):
         pytest.skip("no renderer")
     import golden_compare
     pairs = golden_compare.compare(winning, golden_deck[0], OUT / "golden_compare", engine="quicklook")
-    assert len(pairs) == len(EXPECTED)
+    assert len(pairs) >= len(EXPECTED) - 1

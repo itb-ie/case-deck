@@ -14,8 +14,8 @@ def _count(path):
 
 
 def test_navigation(golden_deck):
-    out = OUT / "tajin_nav.pptx"
-    r = navigate.navigate(golden_deck[0], out)
+    out, rep = golden_deck          # build.py adds navigation itself
+    r = rep["navigation"]
     prs, zooms, nav = _count(out)
     appendix = [s for s in prs.slides if build.slide_meta(s).get("appendix")
                 and build.slide_meta(s).get("pattern") not in ("appendix_divider", "appendix_index")]
@@ -29,7 +29,7 @@ def test_navigation(golden_deck):
     assert not dk.verify_package(out)
     assert r["corner_links"] >= 25
 
-    out2 = OUT / "tajin_nav2.pptx"
+    out2 = OUT / "tajin_renavigated.pptx"
     navigate.navigate(out, out2)
     _, zooms2, nav2 = _count(out2)
     assert (zooms2, nav2) == (zooms, nav)

@@ -24,7 +24,16 @@ PAIRS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 
 
 def compare(winning: Path, rebuild: Path, out: Path, engine="powerpoint"):
     from PIL import Image, ImageDraw
+    import build
+    import deckkit as dk
     out.mkdir(parents=True, exist_ok=True)
+    # compare without the hidden navigator slide that navigation inserts
+    prs = dk.open_deck(rebuild)
+    for s in list(prs.slides):
+        if build.slide_meta(s).get("nav_generated"):
+            dk.drop_slide(prs, s)
+    rebuild = out / "rebuild_without_navigator.pptx"
+    prs.save(str(rebuild))
     orig = render.render(winning / "Mexico 24H Case.pptx", sorted({p for p in PAIRS if p}),
                          out / "orig", 1200, engine)
     new = render.render(rebuild, list(range(1, len(PAIRS) + 1)), out / "rebuild", 1200, engine)

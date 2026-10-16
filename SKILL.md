@@ -32,7 +32,7 @@ Say, in one or two lines:
 3. Write `storyline.md` in the team's folder (format: `references/storyline_format.md`). Follow the house skeleton. Every number gets a source, or `[ASSUMPTION: ...]` or `[SOURCE?]`. Never invent a number, a statistic or a quote.
 4. **Stop. Show the storyline and wait until the team approves or edits it.** No slides before that.
 5. Write `deck_spec.yaml` from the approved storyline. Run `python3 scripts/build.py deck_spec.yaml --check` and fix every error (box too long: shorten the text, never shrink fonts).
-6. Build: `python3 scripts/build.py deck_spec.yaml`. Then `python3 scripts/navigate.py <deck>.pptx`. Then render: `python3 scripts/render.py <deck>.pptx --sheet sheet.png` and look at the sheet.
+6. Build: `python3 scripts/build.py deck_spec.yaml`. This writes one deck, with the appendix navigation already in it (zooms, "Appendix ›" links, sections). Then render: `python3 scripts/render.py <deck>.pptx --sheet sheet.png` and look at the sheet.
 7. Self-review: `python3 scripts/review.py <deck>.pptx`. Fix overflow, overlaps and leftovers in the spec and rebuild, **at most 2 rounds**.
 8. Report: the deck path, slide count, open `[ASSUMPTION]`/`[SOURCE?]` items, image placeholders still grey, and what needs a human polish (photos, builds, final wording).
 
@@ -42,7 +42,7 @@ Images the team did not give stay as labelled grey placeholders. Never use stock
 
 1. Write `edit_spec.yaml` (format in `references/storyline_format.md`): `add`, `replace`, `move`, `delete`. Slide numbers refer to the deck as it is now.
 2. `python3 scripts/edit.py edit_spec.yaml --check`, then without `--check`. It writes `<deck>_v2.pptx` and confirms that every untouched slide is unchanged.
-3. If the deck had navigation, run `navigate.py` on the new file.
+3. If the deck has navigation, `edit.py` refreshes it (new slides get their "Appendix ›" link, the index gets zooms for new backup slides).
 4. Works on decks made by hand in other templates too: new slides keep our style and colours.
 
 ## Mode 3: Review (slide quality plus the judge view)
@@ -69,7 +69,7 @@ Read `references/deslop.md` first.
 
 ## Mode 5: Navigation
 
-`python3 scripts/navigate.py <deck>.pptx` adds, as in the Zoom demo deck:
+`build.py` adds navigation to every deck it builds, and `edit.py` keeps it current. Run `python3 scripts/navigate.py <deck>.pptx` yourself only for decks made by hand (they need an "Appendix. Index" slide). Navigation, as in the Zoom demo deck:
 - PowerPoint sections (one per storyline section and appendix group);
 - Slide Zooms to every backup slide on the appendix index; after a backup slide, PowerPoint returns to the index;
 - a "‹ Back to presentation" button on the index (last slide viewed);

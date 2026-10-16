@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.1 (2026-10-17)
+
+- One file per deck: `build.py` adds the appendix navigation itself (`--no-nav` to skip), and `edit.py` refreshes it. Existing "Appendix ›" links on untouched slides stay as they are.
+- Dropping a slide also removes links and zooms that pointed at it (fixes duplicate slide parts on save).
+- Rendering a hidden slide no longer stalls Quick Look.
+
 ## v0.1.0 (2026-10-16)
 
 First version for the case competition course.

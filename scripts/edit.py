@@ -156,10 +156,18 @@ def edit(spec_path, check_only=False):
         raise EditError("output would overwrite the original deck; set overwrite: true to allow it")
     prs.save(str(out))
 
+    had_nav = any(sh.name.startswith("nav:") for s in original for sh in s.shapes)
+    if had_nav:
+        import navigate
+        report["navigation"] = navigate.navigate(out, out)
+
     # verify: every original slide that was not replaced/deleted is unchanged
+    # (the appendix index is rebuilt by the navigation on purpose)
     after = dk.open_deck(out)
     changed = []
     for s in after.slides:
+        if build.slide_meta(s).get("pattern") == "appendix_index" and had_nav:
+            continue
         if s.slide_id in before and s.slide_id not in deleted:
             if slide_fingerprint(s) != before[s.slide_id]:
                 changed.append(s.slide_id)
@@ -188,8 +196,9 @@ def main():
     for k in ("unfilled", "placeholders", "open_tags"):
         for x in r[k]:
             print(f"  {k}: {x}")
-    if any(sh.name.startswith("nav:") for s in dk.open_deck(out).slides for sh in s.shapes):
-        print("This deck has navigation: run navigate.py on the new file to refresh the appendix index.")
+    if r.get("navigation"):
+        n = r["navigation"]
+        print(f"Navigation refreshed: {n['zooms']} zooms on the index, {n['corner_links']} 'Appendix ›' links.")
     sys.exit(0 if r["unchanged_ok"] else 1)
 
 

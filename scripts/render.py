@@ -49,6 +49,9 @@ def _single_slide_copies(pptx: Path, slides, tmp: Path):
     for k in slides:
         prs = dk.Presentation(io.BytesIO(data))
         dk.keep_only(prs, [k - 1])
+        only = prs.slides[0]._element
+        if only.get("show") == "0":
+            del only.attrib["show"]  # Quick Look stalls on a deck whose only slide is hidden
         f = tmp / f"slide_{k:03d}.pptx"
         prs.save(str(f))
         files.append((k, f))

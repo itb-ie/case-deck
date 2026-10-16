@@ -7,7 +7,7 @@ It can:
 2. **Edit** an existing deck: add, replace, move or delete slides, also in decks made by hand;
 3. **Review** a deck for slide quality and as a judge would (rubric, likely questions, missing backup slides);
 4. **Remove AI writing patterns**, only with the team's approval, never changing a number or a name;
-5. Add **appendix navigation** for Q&A: Slide Zooms, an "Appendix ›" link on every slide, a back button.
+5. Add **appendix navigation** for Q&A: Slide Zooms, an "Appendix ›" link on every slide, a back button. Every deck it builds already has this; there is one file per deck.
 
 The scripts do the layout. The team owns the storyline, every number and the final wording.
 
@@ -58,9 +58,9 @@ What is in the skill:
 
 | Step | Time |
 |---|---|
-| Build 37 slides from a spec | about 1 s |
+| Build 37 slides from a spec, navigation included | 3-4 s |
 | Add one slide to a 37-slide deck | under 1 s |
-| Navigation (zooms, links, sections) | 2-3 s |
+| Navigation alone, for decks made by hand | 2-3 s |
 | Review (with AI check) | about 1 s |
 | Render all slides (Quick Look / PowerPoint) | 0.5 s per slide / about 7 s for the deck |
 
@@ -85,7 +85,7 @@ Default limit: 4 findings per 10 slides and a score of 25. All winning decks pas
 
 Scripts check that every zoom and link points to the right slide, and that PowerPoint opens and exports the deck. The jump-back behaviour can only be checked by a person, once per release:
 
-1. Open a navigated deck in PowerPoint and start the slideshow on a main slide (for example slide 5).
+1. Open a built deck in PowerPoint and start the slideshow on a main slide (for example slide 5).
 2. Click "Appendix ›" bottom right: the appendix index opens.
 3. Click a backup slide's thumbnail: it zooms in.
 4. Click to advance: PowerPoint returns to the index.

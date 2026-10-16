@@ -33,7 +33,8 @@ def test_add_one_slide_to_built_deck(golden_deck, tmp_path):
     t = time.time()
     out, r = edit.edit(spec)
     assert time.time() - t < 60
-    assert r["unchanged_ok"] and r["slides"] == 38
+    assert r["unchanged_ok"] and r["slides"] == 39   # 37 + navigator + 1 new
+    assert r.get("navigation"), "edit must refresh navigation on a navigated deck"
 
 
 def test_edit_refuses_overwrite(tmp_path, golden_deck):

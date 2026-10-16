@@ -23,9 +23,7 @@ def test_fresh_case_end_to_end():
     t = time.time()
     out, rep = build.build(FIX / "deck_spec.yaml", OUT / "alma_deck.pptx", quiet=True)
     timings["build"] = time.time() - t
-    t = time.time()
-    nav = navigate.navigate(out, out)
-    timings["navigate"] = time.time() - t
+    nav = rep["navigation"]          # added by build.py
     assert nav["zooms"] >= 2 and not navigate.check_links(out)
     t = time.time()
     r = review.review(out, client="Alma Carraovejas")
