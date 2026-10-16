@@ -118,9 +118,17 @@ def powerpoint_pdf(pptx: Path, pdf: Path, timeout=180):
         tell application "Microsoft PowerPoint"
             open POSIX file "{src}"
             delay 1
-            set p to presentation 1
-            save p in ((POSIX file "{out}") as text) as save as PDF
-            close p saving no
+            set done to false
+            repeat with i from (count of presentations) to 1 by -1
+                set p to presentation i
+                if (full name of p) is "{src}" then
+                    save p in ((POSIX file "{out}") as text) as save as PDF
+                    close p saving no
+                    set done to true
+                    exit repeat
+                end if
+            end repeat
+            if not done then error "deck not found among open presentations"
         end tell'''
         subprocess.run(["osascript", "-e", script], check=True, timeout=timeout,
                        stdout=subprocess.DEVNULL)
